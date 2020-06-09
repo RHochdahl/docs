@@ -85,9 +85,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../contributing.html">Contributing</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Contributing to Documentation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-two">Step Two</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-three">Step Three</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#forking-the-repository">Forking the Repository</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#make-your-changes">Make your Changes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#build-the-docs-locally">Build the Docs locally</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contributing_to_hippocampus.html">Contributing to HippoCampus</a></li>
@@ -167,17 +167,35 @@
             
   <div class="section" id="contributing-to-documentation">
 <h1>Contributing to Documentation<a class="headerlink" href="#contributing-to-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Fork this.</p>
+<div class="section" id="forking-the-repository">
+<h2>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this headline">¶</a></h2>
+<p>Go to this documentation’s <a class="reference external" href="https://github.com/HippoCampusRobotics/docs">GitHub repository</a> and fork it (see <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github/fork-a-repo">GitHub’s documentation</a> for details on forking if you do not know how to fork a repository).</p>
+<p>Then clone your fork with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> so you can work with the repository locally.</p>
 </div>
-<div class="section" id="step-two">
-<h2>Step Two<a class="headerlink" href="#step-two" title="Permalink to this headline">¶</a></h2>
-<p>Change that.</p>
+<div class="section" id="make-your-changes">
+<h2>Make your Changes<a class="headerlink" href="#make-your-changes" title="Permalink to this headline">¶</a></h2>
+<p>Modify or complement the existing .rst-files to your liking.</p>
+<p>Help with the most common ReStructuredText/Sphinx directives can be found <a class="reference external" href="https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html">here</a>. For a more extensive documentation of the capabilities of Sphinx visit the official <a class="reference external" href="https://www.sphinx-doc.org/en/master/contents.html">website</a>.</p>
 </div>
-<div class="section" id="step-three">
-<h2>Step Three<a class="headerlink" href="#step-three" title="Permalink to this headline">¶</a></h2>
-<p>Create Pull Request.</p>
+<div class="section" id="build-the-docs-locally">
+<h2>Build the Docs locally<a class="headerlink" href="#build-the-docs-locally" title="Permalink to this headline">¶</a></h2>
+<p>Since Sphinx follws the <a class="reference external" href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM paradigm</a>, it is a good idea to build the <code class="docutils literal notranslate"><span class="pre">html</span></code> output, to check if your changes work out as expected.</p>
+<p>Probably easiest way to do so is to setup a virtual environment for python by executing the following commmand inside your cloned fork of the documentation repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv venv
+</pre></div>
+</div>
+<p>Activate the virtual environment with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> venv/bin/activate
+</pre></div>
+</div>
+<p>and install the Sphinx dependencies by executing</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3 install -r requirements.txt
+</pre></div>
+</div>
+<p>Now you can build the documentation by running</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make html
+</pre></div>
+</div>
 </div>
 </div>
 
