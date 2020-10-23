@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,12 +11,18 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
   
   
   
 
   
-  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
@@ -29,10 +34,6 @@
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Writing Launch Files" href="writing_launch_files.html" />
@@ -50,7 +51,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home"> HippoCampusDocs
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> HippoCampusDocs
           
 
           
@@ -73,6 +74,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -86,7 +88,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="structuring_catkin_packages.html">Structuring Catkin Packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Formatters</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Using Formatters</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#python">Python</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="writing_launch_files.html">Writing Launch Files</a></li>
 </ul>
 </li>
@@ -95,6 +100,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -133,7 +139,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="../workflow_and_style_guide.html">Workflow and Style Guide</a> &raquo;</li>
         
@@ -163,6 +169,36 @@
             
   <div class="section" id="using-formatters">
 <h1>Using Formatters<a class="headerlink" href="#using-formatters" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<p>For Python code we use <code class="code docutils literal notranslate"><span class="pre">yapf</span></code> as formatter with these settings:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">style</span><span class="p">]</span>
+<span class="n">based_on_style</span> <span class="o">=</span> <span class="n">pep8</span>
+<span class="n">column_limit</span> <span class="o">=</span> <span class="mi">80</span>
+</pre></div>
+</div>
+<p>The default <code class="file docutils literal notranslate"><span class="pre">.style.yapf</span></code> <code class="code docutils literal notranslate"><span class="pre">yapf</span></code> style file can be found on <a class="reference external" href="https://gist.github.com/lennartalff/42dc02ee01ced47bfb0f75d715e5dcf9">GitHub Gist</a> or directly downloaded in your current directory by executing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://gist.githubusercontent.com/lennartalff/42dc02ee01ced47bfb0f75d715e5dcf9/raw/da9d31abbf27d1d71b24a25dbe1c840506a17bfb/.style.yapf
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The downloaded file is named <code class="code docutils literal notranslate"><span class="pre">.style.yapf</span></code> and is therefore hidden. To show up in command line use <code class="code docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-a</span></code> or hit <kbd class="kbd docutils literal notranslate">Ctrl</kbd> + <kbd class="kbd docutils literal notranslate">H</kbd> in your GUI filebrowser.</p>
+</div>
+<p>To run <code class="code docutils literal notranslate"><span class="pre">yapf</span></code> via the commandline and show the differences on formatting it suggests enter your project’s directory and enter:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yapf --diff --recursive .
+</pre></div>
+</div>
+<p>If no output shows up this means all the Python files are already formatted according to the style settings in <code class="file docutils literal notranslate"><span class="pre">.style.yapf</span></code>.</p>
+<p>To apply changes on all files run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>yapf -i --recursive .
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>A more detailed description on how to use <code class="code docutils literal notranslate"><span class="pre">yapf</span></code> can be found in it’s <a class="reference external" href="https://github.com/google/yapf">README</a>.</p>
+</div>
+</div>
 </div>
 
 
@@ -185,11 +221,19 @@
 
   <div role="contentinfo">
     <p>
+        
         &copy; Copyright 2020, Thies Lennart Alff
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -200,7 +244,6 @@
 
   </div>
   
-
 
   <script type="text/javascript">
       jQuery(function () {
