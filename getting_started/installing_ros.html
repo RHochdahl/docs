@@ -86,8 +86,11 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing ROS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-two">Step Two</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rosdep-initialization">rosdep Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#catkin-initialization">Catkin Initialization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation-of-hippocampus-packages">Installation of HippoCampus Packages</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
@@ -174,13 +177,109 @@
             
   <div class="section" id="installing-ros">
 <h1>Installing ROS<a class="headerlink" href="#installing-ros" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Do this and that.</p>
+<div class="section" id="preparation">
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Add sources</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+</pre></div>
 </div>
-<div class="section" id="step-two">
-<h2>Step Two<a class="headerlink" href="#step-two" title="Permalink to this headline">¶</a></h2>
-<p>Execute foo and create bar.</p>
+</li>
+<li><p>Add keys</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+</pre></div>
+</div>
+</li>
+<li><p>Update</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>Install ROS</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
+</pre></div>
+</div>
+</li>
+<li><p>Install build dependencies</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+</pre></div>
+</div>
+</li>
+<li><p>Install catkin-tools</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-catkin-tools
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="rosdep-initialization">
+<h2>rosdep Initialization<a class="headerlink" href="#rosdep-initialization" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rosdep init <span class="o">&amp;&amp;</span> rosdep update
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do <strong>not</strong> execute <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">update</span></code> with root privileges. This would lead to permission issues.</p>
+</div>
+</div>
+<div class="section" id="catkin-initialization">
+<h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline">¶</a></h2>
+<p>Depending on the shell you use, choose one of the following two options:</p>
+<ul>
+<li><dl>
+<dt>Bash</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Zsh</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Create workspace directories</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/catkin_ws
+</pre></div>
+</div>
+<p>Initialize your workspace</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>catkin build
+</pre></div>
+</div>
+<p>Automatically source your Catkin workspace, choose the option according to your shell:</p>
+<ul>
+<li><dl>
+<dt>Bash</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Zsh</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="installation-of-hippocampus-packages">
+<h2>Installation of HippoCampus Packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Adding list of <code class="code docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> commands.</p>
+</div>
 </div>
 </div>
 
