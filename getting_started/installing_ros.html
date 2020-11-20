@@ -177,6 +177,7 @@
             
   <div class="section" id="installing-ros">
 <h1>Installing ROS<a class="headerlink" href="#installing-ros" title="Permalink to this headline">¶</a></h1>
+<p>The following installations steps work for a Ubuntu 18.04 amd64 version <strong>and</strong> for the Ubuntu 18.04 server image for the Raspberry Pi.</p>
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -199,11 +200,28 @@
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Choose the installation option depending on your needs. Probably it’s not reasonable to install <code class="code docutils literal notranslate"><span class="pre">ros-melodic-desktop-full</span></code> on an Ubuntu server image for the Raspberry Pi.</p>
+</div>
 <ol class="arabic">
 <li><p>Install ROS</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
+<ul>
+<li><dl>
+<dt>Full installation</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
 </pre></div>
 </div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Base (no GUI)</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
 </li>
 <li><p>Install build dependencies</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
