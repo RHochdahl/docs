@@ -189,8 +189,8 @@
 <div class="section" id="flash-the-firmware">
 <h2>Flash The Firmware<a class="headerlink" href="#flash-the-firmware" title="Permalink to this headline">¶</a></h2>
 <p>You need to be able to reach the BlueROV’s Raspberry Pi via ssh. The most convenient way is to create a <code class="code docutils literal notranslate"><span class="pre">bash</span></code> script.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
 <p>Please update the following code block in case the BlueROV’s host or username changes.</p>
 </div>
 <div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -210,7 +210,7 @@ ssh ubuntu@ubuntu.local <span class="s">&lt;&lt; EOF</span>
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span>Host klopsi
     User ubuntu
-    Hostname ubuntu.local
+    Hostname klopsi.local
     IdentitiyFile <span class="s2">&quot;~/.ssh/id_ed25519&quot;</span>
 </pre></div>
 </td></tr></table></div>
@@ -218,7 +218,7 @@ ssh ubuntu@ubuntu.local <span class="s">&lt;&lt; EOF</span>
 <p class="admonition-title">Note</p>
 <p>Replace the path for the identity file with the name of your key.</p>
 </div>
-<p>This entry allows you to use <code class="file docutils literal notranslate"><span class="pre">klopsi</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">ubuntu&#64;ubuntu.local</span></code>.</p>
+<p>This entry allows you to use <code class="file docutils literal notranslate"><span class="pre">klopsi</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">ubuntu&#64;klopsi.local</span></code>.</p>
 </div>
 </div>
 
