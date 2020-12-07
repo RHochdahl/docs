@@ -35,7 +35,9 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Gantry" href="../gantry.html" />
+    <link rel="prev" title="Build And Flash" href="build_and_flash.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -81,9 +83,25 @@
             
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../bluerov.html">BlueROV</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="build_and_flash.html">Build And Flash</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Servo And Light</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-pigpio">Install PIGPIO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#raspbian">Raspbian</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enable-the-daemon">Enable The Daemon</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu-only">Ubuntu only</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#raspbian-and-ubuntu">Raspbian and Ubuntu</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../gantry.html">Gantry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
@@ -133,6 +151,8 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
+          <li><a href="../bluerov.html">BlueROV</a> &raquo;</li>
+        
       <li>Servo And Light</li>
     
     
@@ -180,6 +200,36 @@ sudo make install
 </div>
 </div>
 </div>
+<div class="section" id="enable-the-daemon">
+<h2>Enable The Daemon<a class="headerlink" href="#enable-the-daemon" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ubuntu-only">
+<h3>Ubuntu only<a class="headerlink" href="#ubuntu-only" title="Permalink to this headline">¶</a></h3>
+<p>You need to create the <code class="file docutils literal notranslate"><span class="pre">pigpiod.service</span></code> file at <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Unit<span class="o">]</span>
+<span class="nv">Description</span><span class="o">=</span>Pigpio daemon
+
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Type</span><span class="o">=</span>forking
+<span class="nv">PIDFile</span><span class="o">=</span>pigpio.pid
+<span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/pigpiod
+
+<span class="o">[</span>Install<span class="o">]</span>
+<span class="nv">WantedBy</span><span class="o">=</span>multi-user.target
+</pre></div>
+</div>
+</div>
+<div class="section" id="raspbian-and-ubuntu">
+<h3>Raspbian and Ubuntu<a class="headerlink" href="#raspbian-and-ubuntu" title="Permalink to this headline">¶</a></h3>
+<p>Enable the service</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> pigpiod.service
+</pre></div>
+</div>
+<p>and run the service</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo systemctl start pigpiod.service
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -187,6 +237,15 @@ sudo make install
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../gantry.html" class="btn btn-neutral float-right" title="Gantry" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="build_and_flash.html" class="btn btn-neutral float-left" title="Build And Flash" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
