@@ -13,6 +13,10 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
 
   
   
@@ -30,6 +34,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+        <script src="../_static/sphinx_tabs/tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -97,6 +103,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#setup-workspace">Setup Workspace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#build-the-code">Build the Code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#initialize-user-workspace">Initialize User Workspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configure-uart">Configure UART</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ethernet-configuration">Ethernet Configuration</a></li>
 </ul>
 </li>
 </ul>
@@ -186,7 +194,7 @@
 <h2>Pre-Boot Configuration<a class="headerlink" href="#pre-boot-configuration" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>Flash an Raspbian Buster image to an SD card with the tool of your choice (for example <a class="reference external" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>).</p></li>
-<li><p>Do not eject the SD card yet. Download the <a class="reference download external" download="" href="https://gist.github.com/lennartalff/5cf69169edcca7bc6bfc7909a567f67d/archive/97462d0b6cd6a0e98dcd437f9db0c2aa28134702.zip"><code class="xref download docutils literal notranslate"><span class="pre">Boot</span> <span class="pre">partition</span> <span class="pre">files</span></code></a> and move them to the <code class="file docutils literal notranslate"><span class="pre">boot</span></code> partition of the SD card.</p>
+<li><p>Do not eject the SD card yet. Download the <a class="reference download external" download="" href="https://gist.github.com/lennartalff/5cf69169edcca7bc6bfc7909a567f67d"><code class="xref download docutils literal notranslate"><span class="pre">Boot</span> <span class="pre">partition</span> <span class="pre">files</span></code></a> and move them to the <code class="file docutils literal notranslate"><span class="pre">boot</span></code> partition of the SD card.</p>
 <dl class="simple">
 <dt>ssh</dt><dd><p>Empty file that enables the SSH server on the Raspberry Pi.</p>
 </dd>
@@ -194,16 +202,22 @@
 </dd>
 <dt>config.txt</dt><dd><p>Added some lines to enable the serial console, camera, etc.</p>
 </dd>
-<dt>wpa_supplicant.conf</dt><dd><p>Configuration file for setting up Wifi. Modify or complement if your Wifi setup requires it.</p>
+<dt>wpa_supplicant.conf</dt><dd><p>Configuration file for setting up Wifi. Modify or complement, if your Wifi setup requires it.</p>
 </dd>
 </dl>
 </li>
 </ol>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Please replace the password in the <code class="file docutils literal notranslate"><span class="pre">wpa_supplicant.conf</span></code> with the correct one!</p>
+</div>
+<p>Also change your hostname before the first boot, by editing <code class="file docutils literal notranslate"><span class="pre">etc/hosts</span></code> and <code class="file docutils literal notranslate"><span class="pre">etc/hostname</span></code> on the <code class="file docutils literal notranslate"><span class="pre">rootfs</span></code> partition of the SD card. Replace the default hostname <code class="file docutils literal notranslate"><span class="pre">raspberrypi</span></code> with the new hostname.</p>
+<p>Naming scheme is <code class="file docutils literal notranslate"><span class="pre">hippo-main-nn</span></code> for the Raspberry Pi connected with the FCU and <code class="file docutils literal notranslate"><span class="pre">hippo-buddy-nn</span></code> if it is the secondary Raspberry Pi. Replace <code class="file docutils literal notranslate"><span class="pre">nn</span></code> by a two digit long number with leading zero.</p>
 </div>
 <div class="section" id="system-configuration">
 <h2>System Configuration<a class="headerlink" href="#system-configuration" title="Permalink to this headline">¶</a></h2>
 <p>Insert SD card into Raspberry Pi. If your network is configured appropriately you can SSH into the Raspberry Pi. Otherwise connect your computer with the TX/RX pins of the Raspberry Pi via an USB-serial-converter.</p>
-<p>Login with default credentials, i.e. <code class="code docutils literal notranslate"><span class="pre">pi:raspberry</span></code>. Change the hostname via <code class="code docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">raspi-config</span></code> to a meaningful and unique one to avoid hostname resolution conflicts, for instance <code class="code docutils literal notranslate"><span class="pre">visionmodule01</span></code>. Also change the password by typing <code class="code docutils literal notranslate"><span class="pre">passwd</span></code>.</p>
+<p>Login with default credentials, i.e. <code class="code docutils literal notranslate"><span class="pre">pi:raspberry</span></code>. Change the password by typing <code class="code docutils literal notranslate"><span class="pre">passwd</span></code>.</p>
 <p>Perform a system update:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt update <span class="o">&amp;&amp;</span> sudo apt upgrade -y
 </pre></div>
@@ -228,6 +242,9 @@
 </div>
 </li>
 <li><p>Update source lists</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt update
+</pre></div>
+</div>
 </li>
 <li><p>Install dependencies</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake python-catkin-tools
@@ -299,33 +316,208 @@
 <h3>Initialize User Workspace<a class="headerlink" href="#initialize-user-workspace" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p>Source your ROS installation</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
 </pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+</pre></div>
+</div>
+</div>
 </div>
 </li>
 <li><p>Create workspace</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/catkin_ws
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/catkin_ws
 </pre></div>
 </div>
 </li>
 <li><p>Initialize workspace</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin init
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>catkin init
 </pre></div>
 </div>
 </li>
 <li><p>Build empty workspace</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin build
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>catkin build
 </pre></div>
 </div>
 </li>
 </ol>
 <p>This command created the devel directory inside your catkin workspace. To source your workspace you can either source it manually for each terminal session by executing <code class="code docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/catkin_ws/devel/setup.bash</span></code>. A better way to handle this automatically is to append this command to your <code class="file docutils literal notranslate"><span class="pre">.bashrc</span></code> file.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;source $HOME/catkin_ws/devel/setup.bash&#39;</span> &gt;&gt; ~/.bashrc
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;source $HOME/catkin_ws/devel/setup.zsh&#39;</span> &gt;&gt; ~/.zshrc
 </pre></div>
 </div>
-<p>For this change of the <code class="file docutils literal notranslate"><span class="pre">.bashrc</span></code> to take effect immediately execute:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;source $HOME/catkin_ws/devel/setup.bash&#39;</span> &gt;&gt; ~/.bashrc
 </pre></div>
+</div>
+</div>
+</div>
+<p>For this change of the <code class="file docutils literal notranslate"><span class="pre">.bashrc</span></code> to take effect immediately execute:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.bashrc
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="configure-uart">
+<h3>Configure UART<a class="headerlink" href="#configure-uart" title="Permalink to this headline">¶</a></h3>
+<p>We have made the decision, to use UART5 for the telemetry communication with the FCU and UART4 is connected to the debug port of the FCU.</p>
+<p>To keep things simple, you can create a UDEV rule to create more meaningful names than the default <code class="file docutils literal notranslate"><span class="pre">ttyAMAx</span></code> naming convention.</p>
+<p>First of all identify your KERNELS value for UART4 and UART5 by the following command:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>udevadm info --name<span class="o">=</span>/dev/ttyAMA1 --attribute-walk
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span>looking at device <span class="s1">&#39;/devices/platform/soc/fe201800.serial/tty/ttyAMA1&#39;</span>:
+<span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyAMA1&quot;</span>
+<span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>
+<span class="nv">DRIVER</span><span class="o">==</span><span class="s2">&quot;&quot;</span>
+
+looking at parent device <span class="s1">&#39;/devices/ platform/soc/fe201800.serial&#39;</span>:
+<span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201800.serial&quot;</span>
+<span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&quot;amba&quot;</span>
+<span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&quot;uart-pl011&quot;</span>
+ATTRS<span class="o">{</span>driver_override<span class="o">}==</span><span class="s2">&quot;(null)&quot;</span>
+ATTRS<span class="o">{</span>id<span class="o">}==</span><span class="s2">&quot;00241011&quot;</span>
+ATTRS<span class="o">{</span>irq0<span class="o">}==</span><span class="s2">&quot;14&quot;</span>
+
+looking at parent device <span class="s1">&#39;/devices/ platform/soc&#39;</span>:
+<span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;soc&quot;</span>
+<span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&quot;platform&quot;</span>
+<span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&quot;&quot;</span>
+ATTRS<span class="o">{</span>driver_override<span class="o">}==</span><span class="s2">&quot;(null)&quot;</span>
+
+looking at parent device <span class="s1">&#39;/devices/ platform&#39;</span>:
+<span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;platform&quot;</span>
+<span class="nv">SUBSYSTEMS</span><span class="o">==</span><span class="s2">&quot;&quot;</span>
+<span class="nv">DRIVERS</span><span class="o">==</span><span class="s2">&quot;&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>The <code class="file docutils literal notranslate"><span class="pre">ttyAMAx</span></code> number is not specific for the UART device and depends on how many UARTs are activated.</p>
+</div>
+<ul>
+<li><dl>
+<dt>Debug Port</dt><dd><p>UART4</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Tx/Rx &lt;-&gt; GPIO8/GPIO9 <span class="o">(</span><span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201800.serial&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt>Telemetry</dt><dd><p>UART5</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Tx/Rx &lt;-&gt; GPIO12/GPIO13 <span class="o">(</span><span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201a00.serial&quot;</span><span class="o">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</li>
+</ul>
+<p>The resulting UDEV rule in <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-serial.rules</span></code> is:</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyAMA[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}=</span><span class="s2">&quot;fcu_serial&quot;</span>
+
+ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2">&quot;fcu_serial&quot;</span>,  <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201800.serial&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_debug&quot;</span>
+ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2">&quot;fcu_serial&quot;</span>,  <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201a00.serial&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_tele&quot;</span>
+</pre></div>
+</td></tr></table></div>
+<p>You can apply these changes by</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo udevadm control --reload-rules <span class="o">&amp;&amp;</span> sudo udevadm trigger
+</pre></div>
+</div>
+<p>To check, that the rule is applied correctly, you can execute</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/fcu* -l
+</pre></div>
+</div>
+<p>The output should show symbolic links for the serial devices:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_debug -&gt; ttyAMA1
+lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_tele -&gt; ttyAMA2
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="file docutils literal notranslate"><span class="pre">ttyAMA</span></code> numbers might differ.</p>
+</div>
+</div>
+<div class="section" id="ethernet-configuration">
+<h3>Ethernet Configuration<a class="headerlink" href="#ethernet-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Todo</p>
 </div>
 </div>
 </div>
