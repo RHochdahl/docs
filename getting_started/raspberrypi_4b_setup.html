@@ -103,10 +103,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#setup-workspace">Setup Workspace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#build-the-code">Build the Code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#initialize-user-workspace">Initialize User Workspace</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configure-uart">Configure UART</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ethernet-configuration">Ethernet Configuration</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#configure-uart">Configure UART</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ethernet-configuration">Ethernet Configuration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="deploying_hippocampus.html">Deploying HippoCampus</a></li>
@@ -408,8 +408,9 @@
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="configure-uart">
-<h3>Configure UART<a class="headerlink" href="#configure-uart" title="Permalink to this headline">¶</a></h3>
+<h2>Configure UART<a class="headerlink" href="#configure-uart" title="Permalink to this headline">¶</a></h2>
 <p>We have made the decision, to use UART5 for the telemetry communication with the FCU and UART4 is connected to the debug port of the FCU.</p>
 <p>To keep things simple, you can create a UDEV rule to create more meaningful names than the default <code class="file docutils literal notranslate"><span class="pre">ttyAMAx</span></code> naming convention.</p>
 <p>First of all identify your KERNELS value for UART4 and UART5 by the following command:</p>
@@ -514,12 +515,48 @@ lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span
 </div>
 </div>
 <div class="section" id="ethernet-configuration">
-<h3>Ethernet Configuration<a class="headerlink" href="#ethernet-configuration" title="Permalink to this headline">¶</a></h3>
-<div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Todo</p>
+<h2>Ethernet Configuration<a class="headerlink" href="#ethernet-configuration" title="Permalink to this headline">¶</a></h2>
+<p>The Raspberry Pis are connected with each other via Ethernet. To have a flexible solution, we define a fallback profile in <code class="file docutils literal notranslate"><span class="pre">/etc/dhcpcd.conf</span></code>. So in case you connect the Raspberry Pi directly to the Router, it uses DHCP. If no DHCP server is available, the Raspberry Pis use the static IP address defined in the fallback profile.</p>
+<p>Either uncomment the existing lines or add them, so <code class="file docutils literal notranslate"><span class="pre">dhcpcd.conf</span></code> contains the following:</p>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-aGlwcG8tbWFpbg== docutils container">
+<div class="docutils container">
+<p>hippo-main</p>
 </div>
 </div>
+<div class="item sphinx-data-tab-aGlwcG8tYnVkZHk= docutils container">
+<div class="docutils container">
+<p>hippo-buddy</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-aGlwcG8tbWFpbg== active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># It is possible to fall back to a static IP if DHCP fails:</span>
+<span class="c1"># define static profile</span>
+profile static_eth0
+static <span class="nv">ip_address</span><span class="o">=</span><span class="m">10</span>.0.0.1/24
+
+<span class="c1"># fallback to static profile on eth0</span>
+interface eth0
+fallback static_eth0
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-aGlwcG8tYnVkZHk= docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># It is possible to fall back to a static IP if DHCP fails:</span>
+<span class="c1"># define static profile</span>
+profile static_eth0
+static <span class="nv">ip_address</span><span class="o">=</span><span class="m">10</span>.0.0.2/24
+
+<span class="c1"># fallback to static profile on eth0</span>
+interface eth0
+fallback static_eth0
+</pre></div>
+</div>
+</div>
+</div>
+<p>You might want to restart the Raspberry Pis.</p>
 </div>
 </div>
 
