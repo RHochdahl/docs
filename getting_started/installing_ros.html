@@ -34,6 +34,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+        <script src="../_static/sphinx_tabs/tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -211,22 +213,30 @@
 </div>
 <ol class="arabic">
 <li><p>Install ROS</p>
-<ul>
-<li><dl>
-<dt>Full installation</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-ZGVza3RvcC1mdWxs docutils container">
+<div class="docutils container">
+<p>desktop-full</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzZSAobm8gR1VJKQ== docutils container">
+<div class="docutils container">
+<p>base (no GUI)</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-ZGVza3RvcC1mdWxs active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Base (no GUI)</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzZSAobm8gR1VJKQ== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-</ul>
+</div>
+</div>
 </li>
 <li><p>Install build dependencies</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
@@ -253,22 +263,30 @@
 <div class="section" id="catkin-initialization">
 <h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the shell you use, choose one of the following two options:</p>
-<ul>
-<li><dl>
-<dt>Bash</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Zsh</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-</ul>
+</div>
+</div>
 <p>Create workspace directories</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/catkin_ws
 </pre></div>
@@ -278,24 +296,32 @@
 </pre></div>
 </div>
 <p>Automatically source your Catkin workspace, choose the option according to your shell:</p>
-<ul>
-<li><dl>
-<dt>Bash</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
-<span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
-</pre></div>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
 </div>
-</dd>
-</dl>
-</li>
-<li><dl>
-<dt>Zsh</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-</ul>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 <div class="section" id="installation-of-hippocampus-packages">
 <h2>Installation of HippoCampus Packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h2>

@@ -34,6 +34,8 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
+        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
+        <script src="../_static/sphinx_tabs/tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -201,25 +203,33 @@
 </pre></div>
 </div>
 <p>Choose the option depending on your shell:</p>
-<ul>
-<li><dl>
-<dt>Bash</dt><dd><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source </span><span class="nv">$PX4_DIR</span><span class="s2">/Tools/setup_gazebo.bash </span><span class="nv">$PX4_DIR</span><span class="s2"> </span><span class="nv">$PX4_DIR</span><span class="s2">/build/px4_sitl_default &gt; /dev/null&quot;</span> &gt;&gt; ~/.bashrc
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-0-0 docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-0-0 active docutils container">
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>Adapt the steps. Probably just change <code class="file docutils literal notranslate"><span class="pre">~/.bashrc</span></code> to <code class="file docutils literal notranslate"><span class="pre">~/.zshrc</span></code>.</p>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source </span><span class="nv">$PX4_DIR</span><span class="s2">/Tools/setup_gazebo.bash </span><span class="nv">$PX4_DIR</span><span class="s2"> </span><span class="nv">$PX4_DIR</span><span class="s2">/build/px4_sitl_default &gt; /dev/null&quot;</span> &gt;&gt; ~/.bashrc
 <span class="nb">echo</span> <span class="s2">&quot;export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:</span><span class="nv">$PX4_DIR</span><span class="s2">&quot;</span> &gt;&gt; ~/.bashrc
 <span class="nb">echo</span> <span class="s2">&quot;export ROS_PACKAGE_PATH=\$ROS_PACKAGE_PATH:</span><span class="nv">$PX4_DIR</span><span class="s2">/Tools/sitl_gazebo&quot;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
-</dd>
-</dl>
-</li>
-<li><p>Zsh</p>
-<blockquote>
-<div><div class="admonition-todo admonition" id="id1">
-<p class="admonition-title">Todo</p>
-<p>Adapt the steps. Probably just change <code class="file docutils literal notranslate"><span class="pre">~/.bashrc</span></code> to <code class="file docutils literal notranslate"><span class="pre">~/.zshrc</span></code>.</p>
 </div>
-</div></blockquote>
-</li>
-</ul>
+</div>
 </div>
 <div class="section" id="sensible-modifications">
 <h2>Sensible Modifications<a class="headerlink" href="#sensible-modifications" title="Permalink to this headline">¶</a></h2>
