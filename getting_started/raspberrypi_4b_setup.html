@@ -103,8 +103,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#setup-workspace">Setup Workspace</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#build-the-code">Build the Code</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#initialize-user-workspace">Initialize User Workspace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ros-network">ROS Network</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#install-ros-packages">Install ROS Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#camera">Camera</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#configure-uart">Configure UART</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ethernet-configuration">Ethernet Configuration</a></li>
 </ul>
@@ -407,6 +410,133 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="ros-network">
+<h3>ROS Network<a class="headerlink" href="#ros-network" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-3-0 docutils container">
+<div class="docutils container">
+<p>hippo-main</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-3-1 docutils container">
+<div class="docutils container">
+<p>hippo-buddy</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-3-0 active docutils container">
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export ROS_MASTER_URI=&quot;http://$(hostname --short).local:11311&quot;&#39;</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s1">&#39;export ROS_HOSTNAME=&quot;$(hostname --short).local&quot;&#39;</span> &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s1">&#39;export ROS_MASTER_URI=&quot;http://$(hostname --short).local:11311&quot;&#39;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s1">&#39;export ROS_HOSTNAME=&quot;$(hostname --short).local&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment sphinx-data-tab-3-1 docutils container">
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Replace the number for hippo-main with the actual one.</p>
+</div>
+<div class="sphinx-tabs docutils container">
+<div class="ui top attached tabular menu sphinx-menu docutils container">
+<div class="active item sphinx-data-tab-enNo docutils container">
+<div class="docutils container">
+<p>zsh</p>
+</div>
+</div>
+<div class="item sphinx-data-tab-YmFzaA== docutils container">
+<div class="docutils container">
+<p>bash</p>
+</div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">HIPPO_MAIN</span><span class="o">=</span><span class="s2">&quot;hippo-main-01&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;export ROS_MASTER_URI=\&quot;http://</span><span class="nv">$HIPPO_MAIN</span><span class="s2">.local:11311\&quot;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s1">&#39;export ROS_HOSTNAME=&quot;$(hostname --short).local&quot;&#39;</span> &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+</div>
+<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">HIPPO_MAIN</span><span class="o">=</span><span class="s2">&quot;hippo-main-01&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;export ROS_MASTER_URI=\&quot;http://</span><span class="nv">$HIPPO_MAIN</span><span class="s2">.local:11311\&quot;&quot;</span> &gt;&gt; ~/.bashrc
+<span class="nb">echo</span> <span class="s1">&#39;export ROS_HOSTNAME=&quot;$(hostname --short).local&quot;&#39;</span> &gt;&gt; ~/.bashrc
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="install-ros-packages">
+<h2>Install ROS Packages<a class="headerlink" href="#install-ros-packages" title="Permalink to this headline">¶</a></h2>
+<p>If you want to install a new package, for example <code class="file docutils literal notranslate"><span class="pre">apriltag_ros</span></code> you can generate a new <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file and merge it with your current workspace with <code class="code docutils literal notranslate"><span class="pre">wstool</span></code>.</p>
+<ol class="arabic">
+<li><p>Change directory</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ros_catkin_ws
+</pre></div>
+</div>
+</li>
+<li><p>New <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator apriltag apriltag_ros &gt; apriltag_ros.rosinstall
+</pre></div>
+</div>
+</li>
+<li><p>Merge</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src apriltag_ros.rosinstall
+</pre></div>
+</div>
+</li>
+<li><p>Update</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool update -t src
+</pre></div>
+</div>
+</li>
+<li><p>Install dependencies</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosdep install -y --from-paths src --ignore-src -r
+</pre></div>
+</div>
+</li>
+<li><p>Build</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="camera">
+<h2>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h2>
+<p>If the Raspberry Pi uses an OV9281 camera, you will have to install the MIPI camera library by Arducam.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ArduCAM/MIPI_Camera.git
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/MIPI_Camera/RPI <span class="o">&amp;&amp;</span> make install
+</pre></div>
 </div>
 </div>
 <div class="section" id="configure-uart">
