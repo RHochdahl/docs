@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Getting Started &mdash; HippoCampusDocs  documentation</title>
+  <title>Raspberry Pi 4B Setup &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Installing ROS" href="getting_started/installing_ros.html" />
-    <link rel="prev" title="Welcome to HippoCampusDocs’s documentation!" href="index.html" /> 
+    <link rel="next" title="Pre-Boot Configuration" href="raspberry_pi_4b_setup/pre_boot_configuration.html" />
+    <link rel="prev" title="Deploying HippoCampus" href="getting_started/deploying_hippocampus.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,15 +88,19 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html">Installing ROS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_px4.html">Installing PX4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/starting_gazebo_simulation.html">Starting Simulation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/deploying_hippocampus.html">Deploying HippoCampus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Raspberry Pi 4B Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/pre_boot_configuration.html">Pre-Boot Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/system_configuration.html">System Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html">ROS Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_network_setup.html">ROS Network Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/install_ros_packages.html">Install ROS Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/mavros.html">MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/camera.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/uart_configuration.html">UART Configuration</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluerov.html">BlueROV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gantry.html">Gantry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
@@ -147,7 +151,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Getting Started</li>
+      <li>Raspberry Pi 4B Setup</li>
     
     
     
@@ -155,7 +159,7 @@
         
             
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -171,41 +175,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="getting-started">
-<h1>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This guide assumes <a class="reference external" href="https://releases.ubuntu.com/18.04/">Ubuntu 18.04</a> is used as OS.</p>
-</div>
+  <div class="section" id="raspberry-pi-4b-setup">
+<h1>Raspberry Pi 4B Setup<a class="headerlink" href="#raspberry-pi-4b-setup" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/installing_ros.html">Installing ROS</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html#preparation">Preparation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html#installation">Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html#rosdep-initialization">rosdep Initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html#catkin-initialization">Catkin Initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_ros.html#installation-of-hippocampus-packages">Installation of HippoCampus Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/pre_boot_configuration.html">Pre-Boot Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/system_configuration.html">System Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html">ROS Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html#workspace-concept">Workspace Concept</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html#preparations">Preparations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html#setup-workspace">Setup Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html#build-the-code">Build the Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/ros_installation.html#initialize-user-workspace">Initialize User Workspace</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/setting_up_catkin_workspace.html#step-one">Step One</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/setting_up_catkin_workspace.html#step-two">Step Two</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/installing_px4.html">Installing PX4</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_px4.html#get-the-code">Get The Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_px4.html#export-environment-variables">Export Environment Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/installing_px4.html#sensible-modifications">Sensible Modifications</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/starting_gazebo_simulation.html">Starting Simulation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/starting_gazebo_simulation.html#step-one">Step One</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="getting_started/deploying_hippocampus.html">Deploying HippoCampus</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/deploying_hippocampus.html#step-one">Step One</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started/deploying_hippocampus.html#step-two">Step Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/ros_network_setup.html">ROS Network Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/install_ros_packages.html">Install ROS Packages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/mavros.html">MAVROS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/camera.html">Camera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_setup/uart_configuration.html">UART Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/uart_configuration.html#uart-kernels-pin-mapping">UART-KERNELS-Pin Mapping</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/uart_configuration.html#uart-rule">UART Rule</a></li>
+<li class="toctree-l2"><a class="reference internal" href="raspberry_pi_4b_setup/uart_configuration.html#identify-kernels">Identify KERNELS</a></li>
 </ul>
 </li>
 </ul>
@@ -220,10 +213,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="getting_started/installing_ros.html" class="btn btn-neutral float-right" title="Installing ROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="raspberry_pi_4b_setup/pre_boot_configuration.html" class="btn btn-neutral float-right" title="Pre-Boot Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to HippoCampusDocs’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="getting_started/deploying_hippocampus.html" class="btn btn-neutral float-left" title="Deploying HippoCampus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

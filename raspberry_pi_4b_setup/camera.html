@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Deploying HippoCampus &mdash; HippoCampusDocs  documentation</title>
+  <title>Camera &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Raspberry Pi 4B Setup" href="../raspberry_pi_4b_setup.html" />
-    <link rel="prev" title="Starting Simulation" href="starting_gazebo_simulation.html" /> 
+    <link rel="next" title="UART Configuration" href="uart_configuration.html" />
+    <link rel="prev" title="MAVROS" href="mavros.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,19 +88,19 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="installing_ros.html">Installing ROS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="starting_gazebo_simulation.html">Starting Simulation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Deploying HippoCampus</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-two">Step Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pre_boot_configuration.html">Pre-Boot Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_configuration.html">System Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_installation.html">ROS Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ros_packages.html">Install ROS Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mavros.html">MAVROS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gantry.html">Gantry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
@@ -151,9 +151,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../getting_started.html">Getting Started</a> &raquo;</li>
+          <li><a href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a> &raquo;</li>
         
-      <li>Deploying HippoCampus</li>
+      <li>Camera</li>
     
     
     
@@ -161,7 +161,7 @@
         
             
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/deploying_hippocampus.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/camera.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -177,15 +177,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="deploying-hippocampus">
-<h1>Deploying HippoCampus<a class="headerlink" href="#deploying-hippocampus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Flash this.</p>
+  <div class="section" id="camera">
+<h1>Camera<a class="headerlink" href="#camera" title="Permalink to this headline">¶</a></h1>
+<p>If the Raspberry Pi uses an OV9281 camera, you will have to install the MIPI camera library by Arducam.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/ArduCAM/MIPI_Camera.git
+</pre></div>
 </div>
-<div class="section" id="step-two">
-<h2>Step Two<a class="headerlink" href="#step-two" title="Permalink to this headline">¶</a></h2>
-<p>Look! It’s running just perfectly fine without any trial and error.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/MIPI_Camera/RPI <span class="o">&amp;&amp;</span> make install
+</pre></div>
 </div>
 </div>
 
@@ -197,10 +196,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../raspberry_pi_4b_setup.html" class="btn btn-neutral float-right" title="Raspberry Pi 4B Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="uart_configuration.html" class="btn btn-neutral float-right" title="UART Configuration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="starting_gazebo_simulation.html" class="btn btn-neutral float-left" title="Starting Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mavros.html" class="btn btn-neutral float-left" title="MAVROS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

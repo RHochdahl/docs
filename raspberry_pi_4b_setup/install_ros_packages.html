@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Deploying HippoCampus &mdash; HippoCampusDocs  documentation</title>
+  <title>Install ROS Packages &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Raspberry Pi 4B Setup" href="../raspberry_pi_4b_setup.html" />
-    <link rel="prev" title="Starting Simulation" href="starting_gazebo_simulation.html" /> 
+    <link rel="next" title="MAVROS" href="mavros.html" />
+    <link rel="prev" title="ROS Network Setup" href="ros_network_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -88,19 +88,19 @@
             
               <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="installing_ros.html">Installing ROS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="starting_gazebo_simulation.html">Starting Simulation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Deploying HippoCampus</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-two">Step Two</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pre_boot_configuration.html">Pre-Boot Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_configuration.html">System Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_installation.html">ROS Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Install ROS Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mavros.html">MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gantry.html">Gantry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
@@ -151,9 +151,9 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="../getting_started.html">Getting Started</a> &raquo;</li>
+          <li><a href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a> &raquo;</li>
         
-      <li>Deploying HippoCampus</li>
+      <li>Install ROS Packages</li>
     
     
     
@@ -161,7 +161,7 @@
         
             
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/deploying_hippocampus.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/install_ros_packages.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -177,16 +177,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="deploying-hippocampus">
-<h1>Deploying HippoCampus<a class="headerlink" href="#deploying-hippocampus" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Flash this.</p>
+  <div class="section" id="install-ros-packages">
+<h1>Install ROS Packages<a class="headerlink" href="#install-ros-packages" title="Permalink to this headline">¶</a></h1>
+<p>If you want to install a new package, for example <code class="file docutils literal notranslate"><span class="pre">apriltag_ros</span></code> you can generate a new <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file and merge it with your current workspace with <code class="code docutils literal notranslate"><span class="pre">wstool</span></code>.</p>
+<ol class="arabic">
+<li><p>Change directory</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ros_catkin_ws
+</pre></div>
 </div>
-<div class="section" id="step-two">
-<h2>Step Two<a class="headerlink" href="#step-two" title="Permalink to this headline">¶</a></h2>
-<p>Look! It’s running just perfectly fine without any trial and error.</p>
+</li>
+<li><p>New <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator apriltag apriltag_ros &gt; apriltag_ros.rosinstall
+</pre></div>
 </div>
+</li>
+<li><p>Merge</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src apriltag_ros.rosinstall
+</pre></div>
+</div>
+</li>
+<li><p>Update</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool update -t src
+</pre></div>
+</div>
+</li>
+<li><p>Install dependencies</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosdep install -y --from-paths src --ignore-src -r
+</pre></div>
+</div>
+</li>
+<li><p>Build</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</pre></div>
+</div>
+</li>
+</ol>
 </div>
 
 
@@ -197,10 +222,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../raspberry_pi_4b_setup.html" class="btn btn-neutral float-right" title="Raspberry Pi 4B Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="mavros.html" class="btn btn-neutral float-right" title="MAVROS" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="starting_gazebo_simulation.html" class="btn btn-neutral float-left" title="Starting Simulation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="ros_network_setup.html" class="btn btn-neutral float-left" title="ROS Network Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
