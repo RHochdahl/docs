@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Installing ROS &mdash; HippoCampusDocs  documentation</title>
   
@@ -13,14 +13,14 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -34,8 +34,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
-        <script src="../_static/sphinx_tabs/tabs.js"></script>
+        <script src="../_static/tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -57,7 +56,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> HippoCampusDocs
+            <a href="../index.html" class="icon icon-home"> HippoCampusDocs
           
 
           
@@ -150,6 +149,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -164,7 +165,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/installing_ros.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -214,29 +215,13 @@
 <ol class="arabic">
 <li><p>Install ROS</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-ZGVza3RvcC1mdWxs docutils container">
-<div class="docutils container">
-<p>desktop-full</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-YmFzZSAobm8gR1VJKQ== docutils container">
-<div class="docutils container">
-<p>base (no GUI)</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-ZGVza3RvcC1mdWxs active docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-ZGVza3RvcC1mdWxs" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tab" tabindex="0">desktop-full</button><button aria-controls="panel-0-YmFzZSAobm8gR1VJKQ==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tab" tabindex="-1">base (no GUI)</button></div><div aria-labelledby="tab-0-ZGVza3RvcC1mdWxs" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
 </pre></div>
 </div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzZSAobm8gR1VJKQ== docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
+</div><div aria-labelledby="tab-0-YmFzZSAobm8gR1VJKQ==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
 </pre></div>
 </div>
-</div>
-</div>
+</div></div>
 </li>
 <li><p>Install build dependencies</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
@@ -264,29 +249,13 @@
 <h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the shell you use, choose one of the following two options:</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-enNo docutils container">
-<div class="docutils container">
-<p>zsh</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-YmFzaA== docutils container">
-<div class="docutils container">
-<p>bash</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-1-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-1-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
 </pre></div>
 </div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+</div><div aria-labelledby="tab-1-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
 </pre></div>
 </div>
-</div>
-</div>
+</div></div>
 <p>Create workspace directories</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/catkin_ws
 </pre></div>
@@ -297,31 +266,15 @@
 </div>
 <p>Automatically source your Catkin workspace, choose the option according to your shell:</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-enNo docutils container">
-<div class="docutils container">
-<p>zsh</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-YmFzaA== docutils container">
-<div class="docutils container">
-<p>bash</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-enNo active docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-2-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-2-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-2-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 </pre></div>
 </div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-YmFzaA== docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+</div><div aria-labelledby="tab-2-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 <span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
-</div>
-</div>
+</div></div>
 </div>
 <div class="section" id="installation-of-hippocampus-packages">
 <h2>Installation of HippoCampus Packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h2>
@@ -337,37 +290,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="setting_up_catkin_workspace.html" class="btn btn-neutral float-right" title="Setting Up Catkin Workspace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="setting_up_catkin_workspace.html" class="btn btn-neutral float-right" title="Setting Up Catkin Workspace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Thies Lennart Alff
+        &#169; Copyright 2020, Thies Lennart Alff.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

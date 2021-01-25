@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>UART Configuration &mdash; HippoCampusDocs  documentation</title>
   
@@ -13,14 +13,14 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/segment.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/menu.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/sphinx_tabs/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -34,8 +34,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/language_data.js"></script>
-        <script src="../_static/sphinx_tabs/semantic-ui-2.4.1/tab.min.js"></script>
-        <script src="../_static/sphinx_tabs/tabs.js"></script>
+        <script src="../_static/tabs.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -57,7 +56,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> HippoCampusDocs
+            <a href="../index.html" class="icon icon-home"> HippoCampusDocs
           
 
           
@@ -152,6 +151,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -166,7 +167,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             
               <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/uart_configuration.rst" class="fa fa-github"> Edit on GitHub</a>
             
@@ -190,7 +191,7 @@
 <p class="admonition-title">Attention</p>
 <p>By default UART0 is used as a login terminal. Do not change this, unless there is a compelling reason to do so.</p>
 </div>
-<p>We have made the decision, to use UART5 for the telemetry communication with the FCU and UART4 is connected to the debug port of the FCU.</p>
+<p>We have made the decision to use UART5 for the telemetry communication with the FCU. UART4 is connected to the debug port of the FCU.</p>
 <div class="section" id="uart-kernels-pin-mapping">
 <h2>UART-KERNELS-Pin Mapping<a class="headerlink" href="#uart-kernels-pin-mapping" title="Permalink to this headline">¶</a></h2>
 <p>The UART functions in the following table depend on whether Raspberry Pi is used in a UUV or for the gantry controlling computer.</p>
@@ -246,20 +247,7 @@
 <h2>UART Rule<a class="headerlink" href="#uart-rule" title="Permalink to this headline">¶</a></h2>
 <p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-serial.rules</span></code> with the following content:</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-VVVW docutils container">
-<div class="docutils container">
-<p>UUV</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="docutils container">
-<p>Gantry</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VVVW active docutils container">
-<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-0-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-0-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyAMA[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}=</span><span class="s2">&quot;fcu_serial&quot;</span>
@@ -268,9 +256,7 @@ ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2
 ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2">&quot;fcu_serial&quot;</span>,  <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201a00.serial&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_tele&quot;</span>
 </pre></div>
 </td></tr></table></div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</div><div aria-labelledby="tab-0-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -281,65 +267,32 @@ ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2
 ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2">&quot;motor_serial&quot;</span>,  <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201a00.serial&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;motor_z&quot;</span>
 </pre></div>
 </td></tr></table></div>
-</div>
-</div>
+</div></div>
 <p>You can apply these changes by</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo udevadm control --reload-rules <span class="o">&amp;&amp;</span> sudo udevadm trigger
 </pre></div>
 </div>
 <p>To check, that the rule is applied correctly, you can execute</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-VVVW docutils container">
-<div class="docutils container">
-<p>UUV</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="docutils container">
-<p>Gantry</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VVVW active docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/fcu* -l
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-1-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-1-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/fcu* -l
 </pre></div>
 </div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/motor* -l
+</div><div aria-labelledby="tab-1-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/motor* -l
 </pre></div>
 </div>
-</div>
-</div>
+</div></div>
 <p>The output should show symbolic links for the serial devices:</p>
 <div class="sphinx-tabs docutils container">
-<div class="ui top attached tabular menu sphinx-menu docutils container">
-<div class="active item sphinx-data-tab-VVVW docutils container">
-<div class="docutils container">
-<p>UUV</p>
-</div>
-</div>
-<div class="item sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="docutils container">
-<p>Gantry</p>
-</div>
-</div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-VVVW active docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_debug -&gt; ttyAMA1
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-2-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-2-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-2-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_debug -&gt; ttyAMA1
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_tele -&gt; ttyAMA2
 </pre></div>
 </div>
-</div>
-<div class="ui bottom attached sphinx-tab tab segment code-tab sphinx-data-tab-R2FudHJ5 docutils container">
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_x -&gt; ttyAMA2
+</div><div aria-labelledby="tab-2-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_x -&gt; ttyAMA2
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_y -&gt; ttyAMA3
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_z -&gt; ttyAMA4
 </pre></div>
 </div>
-</div>
-</div>
+</div></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The <code class="file docutils literal notranslate"><span class="pre">ttyAMA</span></code> numbers might differ, depending on the UARTs you have activated.</p>
@@ -410,37 +363,29 @@ looking at parent device <span class="s1">&#39;/devices/ platform&#39;</span>:
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../bluerov.html" class="btn btn-neutral float-right" title="BlueROV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="camera.html" class="btn btn-neutral float-left" title="Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="../bluerov.html" class="btn btn-neutral float-right" title="BlueROV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="camera.html" class="btn btn-neutral float-left" title="Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, Thies Lennart Alff
+        &#169; Copyright 2020, Thies Lennart Alff.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
