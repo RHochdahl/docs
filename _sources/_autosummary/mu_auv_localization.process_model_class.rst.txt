@@ -1,0 +1,32 @@
+mu\_auv\_localization.process\_model\_class
+===========================================
+
+.. automodule:: mu_auv_localization.process_model_class
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      ProcessModel
+      ProcessModelVelocities
+   
+   
+
+   
+   
+   
+
+
+

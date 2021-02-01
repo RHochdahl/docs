@@ -1,0 +1,27 @@
+mu\_auv\_localization.process\_model\_class.ProcessModelVelocities
+==================================================================
+
+.. currentmodule:: mu_auv_localization.process_model_class
+
+.. autoclass:: ProcessModelVelocities
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~ProcessModelVelocities.__init__
+      ~ProcessModelVelocities.f
+      ~ProcessModelVelocities.f_jacobian
+   
+   
+
+   
+   
+   

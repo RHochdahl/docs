@@ -1,0 +1,34 @@
+﻿mu\_auv\_localization
+=====================
+
+.. automodule:: mu_auv_localization
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
+.. rubric:: Modules
+
+.. autosummary::
+   :toctree:
+   :template: custom-module-template.rst
+   :recursive:
+
+   mu_auv_localization.ekf_class
+   mu_auv_localization.meas_model_class
+   mu_auv_localization.process_model_class
+

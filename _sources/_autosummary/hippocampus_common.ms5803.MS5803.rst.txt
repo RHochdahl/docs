@@ -1,0 +1,27 @@
+hippocampus\_common.ms5803.MS5803
+=================================
+
+.. currentmodule:: hippocampus_common.ms5803
+
+.. autoclass:: MS5803
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MS5803.__init__
+      ~MS5803.get_measurement
+      ~MS5803.reset
+   
+   
+
+   
+   
+   

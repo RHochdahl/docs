@@ -33,7 +33,6 @@
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -98,12 +97,14 @@
 <li class="toctree-l3"><a class="reference internal" href="#make-your-changes">Make your Changes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#build-the-docs-locally">Build the Docs locally</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#view-the-html-output">View the HTML output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#autogenerate-documentation">Autogenerate Documentation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="contributing_to_hippocampus.html">Contributing to HippoCampus</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src.html">Documentation of the Source Code</a></li>
 </ul>
 
             
@@ -217,6 +218,16 @@
 <div class="section" id="view-the-html-output">
 <h2>View the HTML output<a class="headerlink" href="#view-the-html-output" title="Permalink to this headline">¶</a></h2>
 <p>You can view the HTML output by opening <code class="file docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> with a webbrowser.</p>
+</div>
+<div class="section" id="autogenerate-documentation">
+<h2>Autogenerate Documentation<a class="headerlink" href="#autogenerate-documentation" title="Permalink to this headline">¶</a></h2>
+<p>To generate API documentation for Python packages add the them as submodule under the <code class="file docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">PKG_NAME</span><span class="o">=</span><span class="s2">&quot;insert-your-package-name-here&quot;</span>
+git submodule add https://github.com/HippoCampusRobotics/<span class="nv">$PKG_NAME</span>.git src/<span class="nv">$PKG_NAME</span>
+</pre></div>
+</div>
+<p>Add the package name to the <code class="code docutils literal notranslate"><span class="pre">packages</span></code> list in <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
+<p>Then add the package in <code class="file docutils literal notranslate"><span class="pre">src.rst</span></code>. If you get errors/warning telling you that something related to your newly added package could not be imported, make sure you add all external modules imported in your package/modules to the <code class="code docutils literal notranslate"><span class="pre">autodoc_mock_imports</span></code> list in <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
 </div>
 </div>
 

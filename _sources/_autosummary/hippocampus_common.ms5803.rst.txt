@@ -1,0 +1,31 @@
+hippocampus\_common.ms5803
+==========================
+
+.. automodule:: hippocampus_common.ms5803
+  
+   
+   
+   
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+      :toctree:
+      :template: custom-class-template.rst
+   
+      MS5803
+   
+   
+
+   
+   
+   
+
+
+

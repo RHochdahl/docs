@@ -1,0 +1,33 @@
+mu\_auv\_localization.meas\_model\_class.MeasurementModelDistances
+==================================================================
+
+.. currentmodule:: mu_auv_localization.meas_model_class
+
+.. autoclass:: MeasurementModelDistances
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~MeasurementModelDistances.__init__
+      ~MeasurementModelDistances.get_dist
+      ~MeasurementModelDistances.h_imu_data
+      ~MeasurementModelDistances.h_jacobian_imu_data
+      ~MeasurementModelDistances.h_jacobian_orientation_data
+      ~MeasurementModelDistances.h_jacobian_vision_data
+      ~MeasurementModelDistances.h_orientation_data
+      ~MeasurementModelDistances.h_vision_data
+      ~MeasurementModelDistances.vision_dynamic_meas_model
+   
+   
+
+   
+   
+   
