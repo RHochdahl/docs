@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>MAVROS &mdash; HippoCampusDocs  documentation</title>
+  <title>Update Catkin Workspace &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Camera" href="camera.html" />
-    <link rel="prev" title="Install ROS Packages" href="install_ros_packages.html" /> 
+    <link rel="next" title="Install ROS Packages" href="install_ros_packages.html" />
+    <link rel="prev" title="ROS Network Setup" href="ros_network_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,9 +94,9 @@
 <li class="toctree-l2"><a class="reference internal" href="ethernet_configuration.html">Ethernet Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros_installation.html">ROS Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update_catkin_ws.html">Update Catkin Workspace</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Update Catkin Workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_ros_packages.html">Install ROS Packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mavros.html">MAVROS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="camera.html">Camera</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
 </ul>
@@ -156,7 +156,7 @@
         
           <li><a href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a> &raquo;</li>
         
-      <li>MAVROS</li>
+      <li>Update Catkin Workspace</li>
     
     
     
@@ -164,7 +164,7 @@
         
           
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/mavros.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/update_catkin_ws.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -180,69 +180,60 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="mavros">
-<h1>MAVROS<a class="headerlink" href="#mavros" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="update-catkin-workspace">
+<h1>Update Catkin Workspace<a class="headerlink" href="#update-catkin-workspace" title="Permalink to this headline">¶</a></h1>
+<p>If you want to update already existing packages in the <code class="file docutils literal notranslate"><span class="pre">/ros_catkin_ws</span></code>, you have to update the <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file and merge it with your current workspace with <code class="code docutils literal notranslate"><span class="pre">wstool</span></code>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>We assume here that you haven’t added any new ROS packages by following the <a class="reference internal" href="install_ros_packages.html#install-ros-packages"><span class="std std-ref">Install ROS Packages</span></a> guide. If you have, these won’t be updated by following these steps.</p>
+</div>
+<ol class="arabic">
+<li><p>Change directory</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ros_catkin_ws
 </pre></div>
 </div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>Use  <code class="code docutils literal notranslate"><span class="pre">kinetic</span></code> in the following command, even if your ROS distro is newer.</p>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator --rosdistro kinetic mavlink <span class="p">|</span> tee /tmp/mavros.rosinstall
+</li>
+<li><p>Update your <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file</p>
+<ul>
+<li><p>First, move your existing rosinstall file (assuming <code class="code docutils literal notranslate"><span class="pre">melodic-ros_comm-perception-wet.rosinstall</span></code>) so that it doesn’t get overwritten:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mv -i melodic-ros_comm-perception-wet.rosinstall melodic-ros_comm-perception-wet.rosinstall.old
 </pre></div>
 </div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator --upstream mavros <span class="p">|</span> tee -a /tmp/mavros.rosinstall
+</div></blockquote>
+</li>
+<li><p>Generate new rosinstall file with same, but updated packages:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator ros_comm perception --rosdistro melodic --deps --wet-only --tar &gt; melodic-ros_comm-perception-wet.rosinstall
 </pre></div>
 </div>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>If <code class="code docutils literal notranslate"><span class="pre">rosdep</span></code> fails to install dependencies, because they are not available in the repositories, install them via <code class="code docutils literal notranslate"><span class="pre">rosinstall_generator</span></code> and <code class="code docutils literal notranslate"><span class="pre">wstool</span></code>.</p>
-</div>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src /tmp/mavros.rosinstall
-wstool update -t src -j4
-sudo apt update
-rosdep install --from-paths src --ignore-src -y
+</div></blockquote>
+</li>
+<li><p>You can compare the new rosinstall file to the old version to see which packages will be updated:</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>diff -u melodic-ros_comm-perception-wet.rosinstall melodic-ros_comm-perception-wet.rosinstall.old
 </pre></div>
 </div>
-<p>So if your console output of <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> is</p>
-<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ERROR: the following packages/stacks could not have their rosdep keys resolved
-to system dependencies:
-mavros: No definition of <span class="o">[</span>geographic_msgs<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
-mavros_extras: No definition of <span class="o">[</span>urdf<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
-test_mavros: No definition of <span class="o">[</span>control_toolbox<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
-mavros_msgs: No definition of <span class="o">[</span>geographic_msgs<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
-Continuing to install resolvable dependencies...
-</pre></div>
-</td></tr></table></div>
-<p>Execute</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator urdf control_toolbox geographic_msgs <span class="p">|</span> tee /tmp/mavros_deps.rosinstall
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p>Merge</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src melodic-ros_comm-perception-wet.rosinstall
 </pre></div>
 </div>
-<p>and</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src /tmp/mavros_deps.rosinstall
-wstool update -t src -j4
+</li>
+<li><p>Update</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool update -t src
 </pre></div>
 </div>
-<p>rerun <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> and make sure all dependecies get resolved.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>It might be necessary to do some iterations of <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> and the manual installation of dependecies until everything compiles successfully.</p>
-</div>
-<p>Build the code:</p>
+</li>
+<li><p>Build</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
 </pre></div>
 </div>
-<p>After the build process has finished cleanly, you might have to execute the geographiclib install script:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
-</pre></div>
-</div>
+</li>
+</ol>
 </div>
 
 
@@ -251,8 +242,8 @@ wstool update -t src -j4
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="camera.html" class="btn btn-neutral float-right" title="Camera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="install_ros_packages.html" class="btn btn-neutral float-left" title="Install ROS Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="install_ros_packages.html" class="btn btn-neutral float-right" title="Install ROS Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ros_network_setup.html" class="btn btn-neutral float-left" title="ROS Network Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
