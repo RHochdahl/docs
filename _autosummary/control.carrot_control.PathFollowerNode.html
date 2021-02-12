@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>hippocampus_common.node.Node &mdash; HippoCampusDocs  documentation</title>
+  <title>control.carrot_control.PathFollowerNode &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hippocampus_common.tf_helper" href="hippocampus_common.tf_helper.html" />
-    <link rel="prev" title="hippocampus_common.node" href="hippocampus_common.node.html" /> 
+    <link rel="next" title="control.pid" href="control.pid.html" />
+    <link rel="prev" title="control.carrot_control" href="control.carrot_control.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,17 +94,16 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../src.html">Documentation of the Source Code</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="hippocampus_common.html">hippocampus_common</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hippocampus_common.ms5803.html">hippocampus_common.ms5803</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="hippocampus_common.node.html">hippocampus_common.node</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="#">hippocampus_common.node.Node</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="hippocampus_common.tf_helper.html">hippocampus_common.tf_helper</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="hippocampus_common.html">hippocampus_common</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mu_auv_localization.html">mu_auv_localization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="control.html">control</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="control.html">control</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="control.carrot_control.html">control.carrot_control</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">control.carrot_control.PathFollowerNode</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="control.pid.html">control.pid</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="path_planning.html">path_planning</a></li>
 </ul>
 </li>
@@ -158,11 +157,11 @@
         
           <li><a href="../src.html">Documentation of the Source Code</a> &raquo;</li>
         
-          <li><a href="hippocampus_common.html">hippocampus_common</a> &raquo;</li>
+          <li><a href="control.html">control</a> &raquo;</li>
         
-          <li><a href="hippocampus_common.node.html">hippocampus_common.node</a> &raquo;</li>
+          <li><a href="control.carrot_control.html">control.carrot_control</a> &raquo;</li>
         
-      <li>hippocampus_common.node.Node</li>
+      <li>control.carrot_control.PathFollowerNode</li>
     
     
     
@@ -170,7 +169,7 @@
         
           
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/_autosummary/hippocampus_common.node.Node.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/_autosummary/control.carrot_control.PathFollowerNode.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -186,16 +185,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="hippocampus-common-node-node">
-<h1>hippocampus_common.node.Node<a class="headerlink" href="#hippocampus-common-node-node" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="control-carrot-control-pathfollowernode">
+<h1>control.carrot_control.PathFollowerNode<a class="headerlink" href="#control-carrot-control-pathfollowernode" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt id="hippocampus_common.node.Node">
-<em class="property">class </em><code class="sig-prename descclassname">hippocampus_common.node.</code><code class="sig-name descname">Node</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">anonymous</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">disable_signals</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hippocampus_common.node.Node" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A basic node class to start off with, when implementing a ROS node.</p>
+<dt id="control.carrot_control.PathFollowerNode">
+<em class="property">class </em><code class="sig-prename descclassname">control.carrot_control.</code><code class="sig-name descname">PathFollowerNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="hippocampus_common.node.Node.html#hippocampus_common.node.Node" title="hippocampus_common.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">hippocampus_common.node.Node</span></code></a></p>
 <dl class="py method">
-<dt id="hippocampus_common.node.Node.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">anonymous</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">disable_signals</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hippocampus_common.node.Node.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="control.carrot_control.PathFollowerNode.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes a ROS node by calling <code class="docutils literal notranslate"><span class="pre">rospy.init_node</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -217,23 +215,32 @@ false. Defaults to False.</p></li>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hippocampus_common.node.Node.__init__" title="hippocampus_common.node.Node.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(name[, anonymous, disable_signals])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#control.carrot_control.PathFollowerNode.__init__" title="control.carrot_control.PathFollowerNode.__init__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__init__</span></code></a>(name)</p></td>
 <td><p>Initializes a ROS node by calling <code class="docutils literal notranslate"><span class="pre">rospy.init_node</span></code>.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hippocampus_common.node.Node.get_param" title="hippocampus_common.node.Node.get_param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_param</span></code></a>(name[, default, verbose, limit])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">angle</span></code>(vec)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#control.carrot_control.PathFollowerNode.get_param" title="control.carrot_control.PathFollowerNode.get_param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_param</span></code></a>(name[, default, verbose, limit])</p></td>
 <td><p>Get a parameter from the ROS parameter server.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#hippocampus_common.node.Node.run" title="hippocampus_common.node.Node.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">on_local_pose</span></code>(msg)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">publish_debug</span></code>(current, target)</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#control.carrot_control.PathFollowerNode.run" title="control.carrot_control.PathFollowerNode.run"><code class="xref py py-obj docutils literal notranslate"><span class="pre">run</span></code></a>()</p></td>
 <td><p>Enters a loop (namely <code class="docutils literal notranslate"><span class="pre">rospy.spin()</span></code>) until ROS is shut down to keep the program from exiting prematurely.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#hippocampus_common.node.Node.set_param" title="hippocampus_common.node.Node.set_param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_param</span></code></a>(name, value[, verbose, limit])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#control.carrot_control.PathFollowerNode.set_param" title="control.carrot_control.PathFollowerNode.set_param"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_param</span></code></a>(name, value[, verbose, limit])</p></td>
 <td><p>Set parameter verbosly.</p></td>
 </tr>
 </tbody>
 </table>
 <dl class="py method">
-<dt id="hippocampus_common.node.Node.get_param">
-<em class="property">static </em><code class="sig-name descname">get_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hippocampus_common.node.Node.get_param" title="Permalink to this definition">¶</a></dt>
+<dt id="control.carrot_control.PathFollowerNode.get_param">
+<em class="property">static </em><code class="sig-name descname">get_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.get_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a parameter from the ROS parameter server.</p>
 <p>Logs a warning if parameter does not exist sets the default value
 afterwards.</p>
@@ -264,8 +271,8 @@ returned.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hippocampus_common.node.Node.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#hippocampus_common.node.Node.run" title="Permalink to this definition">¶</a></dt>
+<dt id="control.carrot_control.PathFollowerNode.run">
+<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enters a loop (namely <code class="docutils literal notranslate"><span class="pre">rospy.spin()</span></code>) until ROS is shut down to
 keep the program from exiting prematurely.</p>
 <p>Override this method if your node should do something besides waiting
@@ -273,8 +280,8 @@ for arriving messages.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt id="hippocampus_common.node.Node.set_param">
-<em class="property">static </em><code class="sig-name descname">set_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#hippocampus_common.node.Node.set_param" title="Permalink to this definition">¶</a></dt>
+<dt id="control.carrot_control.PathFollowerNode.set_param">
+<em class="property">static </em><code class="sig-name descname">set_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.set_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter verbosly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -300,8 +307,8 @@ value to specified number of characters if &gt; 0. Defaults to
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="hippocampus_common.tf_helper.html" class="btn btn-neutral float-right" title="hippocampus_common.tf_helper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="hippocampus_common.node.html" class="btn btn-neutral float-left" title="hippocampus_common.node" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="control.pid.html" class="btn btn-neutral float-right" title="control.pid" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="control.carrot_control.html" class="btn btn-neutral float-left" title="control.carrot_control" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

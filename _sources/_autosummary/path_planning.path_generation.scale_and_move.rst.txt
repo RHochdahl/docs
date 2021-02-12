@@ -1,0 +1,6 @@
+path\_planning.path\_generation.scale\_and\_move
+================================================
+
+.. currentmodule:: path_planning.path_generation
+
+.. autofunction:: scale_and_move

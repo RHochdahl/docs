@@ -1,0 +1,6 @@
+path\_planning.path\_generation.xyz\_to\_gantry\_yaml
+=====================================================
+
+.. currentmodule:: path_planning.path_generation
+
+.. autofunction:: xyz_to_gantry_yaml

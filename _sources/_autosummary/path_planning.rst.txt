@@ -1,7 +1,7 @@
-﻿control
-=======
+﻿path\_planning
+==============
 
-.. automodule:: control
+.. automodule:: path_planning
   
    
    
@@ -28,6 +28,6 @@
    :template: custom-module-template.rst
    :recursive:
 
-   control.carrot_control
-   control.pid
+   path_planning.path_generation
+   path_planning.path_planning
 

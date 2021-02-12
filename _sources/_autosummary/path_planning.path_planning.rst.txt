@@ -1,7 +1,7 @@
-control.pid
-===========
+path\_planning.path\_planning
+=============================
 
-.. automodule:: control.pid
+.. automodule:: path_planning.path_planning
   
    
    
@@ -19,8 +19,7 @@ control.pid
       :toctree:
       :template: custom-class-template.rst
    
-      Controller
-      PidNode
+      Path
    
    
 

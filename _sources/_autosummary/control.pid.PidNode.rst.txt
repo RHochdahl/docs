@@ -1,0 +1,29 @@
+control.pid.PidNode
+===================
+
+.. currentmodule:: control.pid
+
+.. autoclass:: PidNode
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PidNode.__init__
+      ~PidNode.get_param
+      ~PidNode.run
+      ~PidNode.set_param
+      ~PidNode.update_controller
+   
+   
+
+   
+   
+   

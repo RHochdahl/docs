@@ -1,0 +1,29 @@
+path\_planning.path\_planning.Path
+==================================
+
+.. currentmodule:: path_planning.path_planning
+
+.. autoclass:: Path
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~Path.__init__
+      ~Path.get_points_from_yaml_list
+      ~Path.get_target_point
+      ~Path.update_path_from_param_server
+      ~Path.update_target
+   
+   
+
+   
+   
+   

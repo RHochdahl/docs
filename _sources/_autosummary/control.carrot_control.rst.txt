@@ -1,7 +1,7 @@
-control.pid
-===========
+control.carrot\_control
+=======================
 
-.. automodule:: control.pid
+.. automodule:: control.carrot_control
   
    
    
@@ -19,8 +19,7 @@ control.pid
       :toctree:
       :template: custom-class-template.rst
    
-      Controller
-      PidNode
+      PathFollowerNode
    
    
 

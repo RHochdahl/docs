@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>hippocampus_common.node &mdash; HippoCampusDocs  documentation</title>
+  <title>path_planning.path_generation.xyz_to_dict_list &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="hippocampus_common.node.Node" href="hippocampus_common.node.Node.html" />
-    <link rel="prev" title="hippocampus_common.ms5803.MS5803" href="hippocampus_common.ms5803.MS5803.html" /> 
+    <link rel="next" title="path_planning.path_generation.xyz_to_gantry_yaml" href="path_planning.path_generation.xyz_to_gantry_yaml.html" />
+    <link rel="prev" title="path_planning.path_generation.super_ellipse" href="path_planning.path_generation.super_ellipse.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,18 +94,24 @@
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../src.html">Documentation of the Source Code</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="hippocampus_common.html">hippocampus_common</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="hippocampus_common.ms5803.html">hippocampus_common.ms5803</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">hippocampus_common.node</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="hippocampus_common.node.Node.html">hippocampus_common.node.Node</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="hippocampus_common.tf_helper.html">hippocampus_common.tf_helper</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="hippocampus_common.html">hippocampus_common</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mu_auv_localization.html">mu_auv_localization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="control.html">control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="path_planning.html">path_planning</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="path_planning.html">path_planning</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="path_planning.path_generation.html">path_planning.path_generation</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.circle.html">path_planning.path_generation.circle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.get_yaw_angle.html">path_planning.path_generation.get_yaw_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.lemniscate_of_bernoulli.html">path_planning.path_generation.lemniscate_of_bernoulli</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.lemniscate_of_gerono.html">path_planning.path_generation.lemniscate_of_gerono</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.scale_and_move.html">path_planning.path_generation.scale_and_move</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.super_ellipse.html">path_planning.path_generation.super_ellipse</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">path_planning.path_generation.xyz_to_dict_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="path_planning.path_generation.xyz_to_gantry_yaml.html">path_planning.path_generation.xyz_to_gantry_yaml</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="path_planning.path_planning.html">path_planning.path_planning</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -158,9 +164,11 @@
         
           <li><a href="../src.html">Documentation of the Source Code</a> &raquo;</li>
         
-          <li><a href="hippocampus_common.html">hippocampus_common</a> &raquo;</li>
+          <li><a href="path_planning.html">path_planning</a> &raquo;</li>
         
-      <li>hippocampus_common.node</li>
+          <li><a href="path_planning.path_generation.html">path_planning.path_generation</a> &raquo;</li>
+        
+      <li>path_planning.path_generation.xyz_to_dict_list</li>
     
     
     
@@ -168,7 +176,7 @@
         
           
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/_autosummary/hippocampus_common.node.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/_autosummary/path_planning.path_generation.xyz_to_dict_list.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -184,48 +192,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-hippocampus_common.node">
-<span id="hippocampus-common-node"></span><h1>hippocampus_common.node<a class="headerlink" href="#module-hippocampus_common.node" title="Permalink to this headline">¶</a></h1>
-<p>This module provides a very basic Node class template.</p>
-<p class="rubric">Examples</p>
-<dl>
-<dt>::</dt><dd><p>from hippocampus_common.node import Node</p>
-<dl class="simple">
-<dt>if __name__ == “__main__”:</dt><dd><p>my_node = Node(name=”my_simple_node”)
-default = “If you see this, the param was not set before.”
-param = my_node.get_param(“~my_private_param”, default=default)
-print(param)
-my_node.run()</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl>
-<dt>::</dt><dd><p>from hippocampus_common.node import Node</p>
-<dl class="simple">
-<dt>class MyAdvancedNode(Node):</dt><dd><dl class="simple">
-<dt>def __init__(self, name):</dt><dd><p>super(MyAdvancedNode, self).__init__(name=name)
-…</p>
-</dd>
-</dl>
-</dd>
-<dt>if name == “__main__”:</dt><dd><p>my_node = MyAdvancedNode(“my_advanced_node”)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Classes</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="hippocampus_common.node.Node.html#hippocampus_common.node.Node" title="hippocampus_common.node.Node"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Node</span></code></a>(name[, anonymous, disable_signals])</p></td>
-<td><p>A basic node class to start off with, when implementing a ROS node.</p></td>
-</tr>
-</tbody>
-</table>
+  <div class="section" id="path-planning-path-generation-xyz-to-dict-list">
+<h1>path_planning.path_generation.xyz_to_dict_list<a class="headerlink" href="#path-planning-path-generation-xyz-to-dict-list" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="path_planning.path_generation.xyz_to_dict_list">
+<code class="sig-prename descclassname">path_planning.path_generation.</code><code class="sig-name descname">xyz_to_dict_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span></em>, <em class="sig-param"><span class="n">y</span></em>, <em class="sig-param"><span class="n">z</span></em><span class="sig-paren">)</span><a class="headerlink" href="#path_planning.path_generation.xyz_to_dict_list" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
@@ -234,8 +207,8 @@ my_node.run()</p>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="hippocampus_common.node.Node.html" class="btn btn-neutral float-right" title="hippocampus_common.node.Node" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="hippocampus_common.ms5803.MS5803.html" class="btn btn-neutral float-left" title="hippocampus_common.ms5803.MS5803" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="path_planning.path_generation.xyz_to_gantry_yaml.html" class="btn btn-neutral float-right" title="path_planning.path_generation.xyz_to_gantry_yaml" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="path_planning.path_generation.super_ellipse.html" class="btn btn-neutral float-left" title="path_planning.path_generation.super_ellipse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

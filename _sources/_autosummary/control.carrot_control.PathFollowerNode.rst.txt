@@ -1,0 +1,31 @@
+control.carrot\_control.PathFollowerNode
+========================================
+
+.. currentmodule:: control.carrot_control
+
+.. autoclass:: PathFollowerNode
+   :members:
+   :show-inheritance:
+   :inherited-members:
+
+   
+   .. automethod:: __init__
+
+   
+   .. rubric:: Methods
+
+   .. autosummary::
+   
+      ~PathFollowerNode.__init__
+      ~PathFollowerNode.angle
+      ~PathFollowerNode.get_param
+      ~PathFollowerNode.on_local_pose
+      ~PathFollowerNode.publish_debug
+      ~PathFollowerNode.run
+      ~PathFollowerNode.set_param
+   
+   
+
+   
+   
+   

@@ -1,0 +1,6 @@
+path\_planning.path\_generation.lemniscate\_of\_gerono
+======================================================
+
+.. currentmodule:: path_planning.path_generation
+
+.. autofunction:: lemniscate_of_gerono

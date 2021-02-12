@@ -39,6 +39,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="control.pid.PidNode" href="control.pid.PidNode.html" />
     <link rel="prev" title="control.pid" href="control.pid.html" /> 
 </head>
 
@@ -96,12 +97,15 @@
 <li class="toctree-l2"><a class="reference internal" href="hippocampus_common.html">hippocampus_common</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mu_auv_localization.html">mu_auv_localization</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="control.html">control</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="control.carrot_control.html">control.carrot_control</a></li>
 <li class="toctree-l3 current"><a class="reference internal" href="control.pid.html">control.pid</a><ul class="current">
 <li class="toctree-l4 current"><a class="current reference internal" href="#">control.pid.Controller</a></li>
+<li class="toctree-l4"><a class="reference internal" href="control.pid.PidNode.html">control.pid.PidNode</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="path_planning.html">path_planning</a></li>
 </ul>
 </li>
 </ul>
@@ -188,6 +192,20 @@
 <dt id="control.pid.Controller">
 <em class="property">class </em><code class="sig-prename descclassname">control.pid.</code><code class="sig-name descname">Controller</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p_gain</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">i_gain</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">d_gain</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.pid.Controller" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A quite normal PID controller.</p>
+<p>PID gains can either be set on the creation of a controller instance or
+via the respective properties any time later on. Compute the control output
+by invoking <code class="docutils literal notranslate"><span class="pre">update</span></code>.</p>
+<p class="rubric">Examples</p>
+<dl>
+<dt>::</dt><dd><p>controller = Controller(p_gain=3.4, i_gain=1.1, d_gain=0.1)
+controller.p_gain = 1.0
+print(“Controller’s p_gain: {}”.format(controller.p_gain))</p>
+<p>control_error = 1.0
+control_output = controller.update(error=control_error, dt=0.02)
+print(“Control output: {}”.format(control_output))</p>
+</dd>
+</dl>
 <dl class="py method">
 <dt id="control.pid.Controller.__init__">
 <code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p_gain</span><span class="o">=</span><span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">i_gain</span><span class="o">=</span><span class="default_value">0.0</span></em>, <em class="sig-param"><span class="n">d_gain</span><span class="o">=</span><span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.pid.Controller.__init__" title="Permalink to this definition">¶</a></dt>
@@ -299,6 +317,7 @@ Defaults to None.</p></li>
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="control.pid.PidNode.html" class="btn btn-neutral float-right" title="control.pid.PidNode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
         <a href="control.pid.html" class="btn btn-neutral float-left" title="control.pid" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
