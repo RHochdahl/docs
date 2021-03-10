@@ -40,8 +40,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="BlueROV" href="../bluerov.html" />
-    <link rel="prev" title="Camera" href="camera.html" /> 
+    <link rel="next" title="Quality-of-Life Features" href="quality_of_life_features.html" />
+    <link rel="prev" title="Install MIPI Camera Library" href="install_camera_library.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -97,14 +97,18 @@
 <li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update_catkin_ws.html">Update Catkin Workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_ros_packages.html">Install ROS Packages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mavros.html">MAVROS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="camera.html">Camera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_mavros.html">Install MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_our_ros_packages.html">Install Our ROS Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_camera_library.html">Install MIPI Camera Library</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">UART Configuration</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#uart-kernels-pin-mapping">UART-KERNELS-Pin Mapping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pinout">Pinout</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#uart-rule">UART Rule</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#identify-kernels">Identify KERNELS</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="quality_of_life_features.html">Quality-of-Life Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinout.html">Pinout</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
@@ -244,11 +248,18 @@
 </tbody>
 </table>
 </div>
+<div class="section" id="pinout">
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline">¶</a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UUV</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><a class="reference internal image-reference" href="../_images/pi_pinout_uuv.svg"><img alt="../_images/pi_pinout_uuv.svg" class="align-center" src="../_images/pi_pinout_uuv.svg" width="30000" /></a>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><a class="reference internal image-reference" href="../_images/pi_pinout_gantry.svg"><img alt="../_images/pi_pinout_gantry.svg" class="align-center" src="../_images/pi_pinout_gantry.svg" width="30000" /></a>
+</div></div>
+</div>
 <div class="section" id="uart-rule">
 <h2>UART Rule<a class="headerlink" href="#uart-rule" title="Permalink to this headline">¶</a></h2>
 <p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-serial.rules</span></code> with the following content:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-0-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-0-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-0-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-1-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-1-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyAMA[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}=</span><span class="s2">&quot;fcu_serial&quot;</span>
@@ -257,7 +268,7 @@ ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2
 ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2">&quot;fcu_serial&quot;</span>,  <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, <span class="nv">KERNELS</span><span class="o">==</span><span class="s2">&quot;fe201a00.serial&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_tele&quot;</span>
 </pre></div>
 </td></tr></table></div>
-</div><div aria-labelledby="tab-0-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+</div><div aria-labelledby="tab-1-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
@@ -275,20 +286,20 @@ ENV<span class="o">{</span>MOTOR_SERIAL<span class="o">}==</span><span class="s2
 </div>
 <p>To check, that the rule is applied correctly, you can execute</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-1-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-1-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-1-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/fcu* -l
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-2-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-2-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-2-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/fcu* -l
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/motor* -l
+</div><div aria-labelledby="tab-2-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>ls /dev/motor* -l
 </pre></div>
 </div>
 </div></div>
 <p>The output should show symbolic links for the serial devices:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-2-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-2-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-2-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_debug -&gt; ttyAMA1
+<div aria-label="Tabbed content" role="tablist"><button aria-controls="panel-3-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-3-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-3-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-3-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-3-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-3-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_debug -&gt; ttyAMA1
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Dec <span class="m">11</span> <span class="m">14</span>:57 /dev/fcu_tele -&gt; ttyAMA2
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_x -&gt; ttyAMA2
+</div><div aria-labelledby="tab-3-R2FudHJ5" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-3-R2FudHJ5" name="R2FudHJ5" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_x -&gt; ttyAMA2
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_y -&gt; ttyAMA3
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <span class="m">7</span> <span class="m">01</span>:00 /dev/motor_z -&gt; ttyAMA4
 </pre></div>
@@ -365,15 +376,15 @@ looking at parent device <span class="s1">&#39;/devices/ platform&#39;</span>:
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="../bluerov.html" class="btn btn-neutral float-right" title="BlueROV" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="camera.html" class="btn btn-neutral float-left" title="Camera" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="quality_of_life_features.html" class="btn btn-neutral float-right" title="Quality-of-Life Features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install_camera_library.html" class="btn btn-neutral float-left" title="Install MIPI Camera Library" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Thies Lennart Alff.
+        &#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.
 
     </p>
   </div>

@@ -1,0 +1,299 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Install MAVROS &mdash; HippoCampusDocs  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Install Our ROS Packages" href="install_our_ros_packages.html" />
+    <link rel="prev" title="Install ROS Packages" href="install_ros_packages.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> HippoCampusDocs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pre_boot_configuration.html">Pre-Boot Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system_configuration.html">System Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_installation.html">ROS Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update_catkin_ws.html">Update Catkin Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_ros_packages.html">Install ROS Packages</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Install MAVROS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_our_ros_packages.html">Install Our ROS Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_camera_library.html">Install MIPI Camera Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quality_of_life_features.html">Quality-of-Life Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pinout.html">Pinout</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gantry.html">Gantry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../src.html">Documentation of the Source Code</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">HippoCampusDocs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a> &raquo;</li>
+        
+      <li>Install MAVROS</li>
+    
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/install_mavros.rst" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+    <li class="wy-breadcrumbs-aside"><a href="https://hippocampusrobotics.github.io/" class="fa fa-github"> Project Page </a></li>
+
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="install-mavros">
+<h1>Install MAVROS<a class="headerlink" href="#install-mavros" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/ros_catkin_ws
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Use  <code class="code docutils literal notranslate"><span class="pre">kinetic</span></code> in the following command, even if your ROS distro is newer.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator --rosdistro kinetic mavlink <span class="p">|</span> tee /tmp/mavros.rosinstall
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator --upstream mavros <span class="p">|</span> tee -a /tmp/mavros.rosinstall
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If <code class="code docutils literal notranslate"><span class="pre">rosdep</span></code> fails to install dependencies, because they are not available in the repositories, install them via <code class="code docutils literal notranslate"><span class="pre">rosinstall_generator</span></code> and <code class="code docutils literal notranslate"><span class="pre">wstool</span></code>.</p>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src /tmp/mavros.rosinstall
+wstool update -t src -j4
+sudo apt update
+rosdep install --from-paths src --ignore-src -y
+</pre></div>
+</div>
+<p>So if your console output of <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> is</p>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span>ERROR: the following packages/stacks could not have their rosdep keys resolved
+to system dependencies:
+mavros: No definition of <span class="o">[</span>geographic_msgs<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
+mavros_extras: No definition of <span class="o">[</span>urdf<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
+test_mavros: No definition of <span class="o">[</span>control_toolbox<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
+mavros_msgs: No definition of <span class="o">[</span>geographic_msgs<span class="o">]</span> <span class="k">for</span> OS <span class="o">[</span>debian<span class="o">]</span>
+Continuing to install resolvable dependencies...
+</pre></div>
+</td></tr></table></div>
+<p>Execute</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator urdf control_toolbox geographic_msgs <span class="p">|</span> tee /tmp/mavros_deps.rosinstall
+</pre></div>
+</div>
+<p>and</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src /tmp/mavros_deps.rosinstall
+wstool update -t src -j4
+</pre></div>
+</div>
+<p>rerun <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> and make sure all dependecies get resolved.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It might be necessary to do some iterations of <code class="code docutils literal notranslate"><span class="pre">rosdep</span> <span class="pre">install</span></code> and the manual installation of dependecies until everything compiles successfully.</p>
+</div>
+<p>Build the code:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+</pre></div>
+</div>
+<p>After the build process has finished cleanly, you might have to execute the geographiclib install script:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo ./src/mavros/mavros/scripts/install_geographiclib_datasets.sh
+</pre></div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="install_our_ros_packages.html" class="btn btn-neutral float-right" title="Install Our ROS Packages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="install_ros_packages.html" class="btn btn-neutral float-left" title="Install ROS Packages" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

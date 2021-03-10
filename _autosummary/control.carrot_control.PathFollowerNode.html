@@ -189,11 +189,11 @@
 <h1>control.carrot_control.PathFollowerNode<a class="headerlink" href="#control-carrot-control-pathfollowernode" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
 <dt id="control.carrot_control.PathFollowerNode">
-<em class="property">class </em><code class="sig-prename descclassname">control.carrot_control.</code><code class="sig-name descname">PathFollowerNode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">control.carrot_control.</span></code><code class="sig-name descname"><span class="pre">PathFollowerNode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="hippocampus_common.node.Node.html#hippocampus_common.node.Node" title="hippocampus_common.node.Node"><code class="xref py py-class docutils literal notranslate"><span class="pre">hippocampus_common.node.Node</span></code></a></p>
 <dl class="py method">
 <dt id="control.carrot_control.PathFollowerNode.__init__">
-<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__init__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initializes a ROS node by calling <code class="docutils literal notranslate"><span class="pre">rospy.init_node</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -240,7 +240,7 @@ false. Defaults to False.</p></li>
 </table>
 <dl class="py method">
 <dt id="control.carrot_control.PathFollowerNode.get_param">
-<em class="property">static </em><code class="sig-name descname">get_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">default</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.get_param" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">get_param</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.get_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a parameter from the ROS parameter server.</p>
 <p>Logs a warning if parameter does not exist sets the default value
 afterwards.</p>
@@ -272,7 +272,7 @@ returned.</p>
 
 <dl class="py method">
 <dt id="control.carrot_control.PathFollowerNode.run">
-<code class="sig-name descname">run</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.run" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Enters a loop (namely <code class="docutils literal notranslate"><span class="pre">rospy.spin()</span></code>) until ROS is shut down to
 keep the program from exiting prematurely.</p>
 <p>Override this method if your node should do something besides waiting
@@ -281,7 +281,7 @@ for arriving messages.</p>
 
 <dl class="py method">
 <dt id="control.carrot_control.PathFollowerNode.set_param">
-<em class="property">static </em><code class="sig-name descname">set_param</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">value</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">limit</span><span class="o">=</span><span class="default_value">400</span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.set_param" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">set_param</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">limit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#control.carrot_control.PathFollowerNode.set_param" title="Permalink to this definition">¶</a></dt>
 <dd><p>Set parameter verbosly.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -315,7 +315,7 @@ value to specified number of characters if &gt; 0. Defaults to
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2020, Thies Lennart Alff.
+        &#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.
 
     </p>
   </div>
