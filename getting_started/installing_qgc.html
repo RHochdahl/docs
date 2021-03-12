@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Setting Up Catkin Workspace &mdash; HippoCampusDocs  documentation</title>
+  <title>Installing QGroundControl &mdash; HippoCampusDocs  documentation</title>
   
 
   
@@ -39,8 +39,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installing PX4" href="installing_px4.html" />
-    <link rel="prev" title="Installing ROS" href="installing_ros.html" /> 
+    <link rel="next" title="Starting Simulation" href="starting_gazebo_simulation.html" />
+    <link rel="prev" title="Installing PX4" href="installing_px4.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,13 +89,13 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="installing_ros.html">Installing ROS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setting Up Catkin Workspace</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#step-two">Step Two</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing QGroundControl</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-daily-build-appimage">The Daily Build AppImage</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-a-desktop-entry">Adding a desktop entry</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing_qgc.html">Installing QGroundControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting_gazebo_simulation.html">Starting Simulation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deploying_hippocampus.html">Deploying HippoCampus</a></li>
 </ul>
@@ -156,7 +156,7 @@
         
           <li><a href="../getting_started.html">Getting Started</a> &raquo;</li>
         
-      <li>Setting Up Catkin Workspace</li>
+      <li>Installing QGroundControl</li>
     
     
     
@@ -164,7 +164,7 @@
         
           
             
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/setting_up_catkin_workspace.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/installing_qgc.rst" class="fa fa-github"> Edit on GitHub</a>
             
           
         
@@ -180,15 +180,51 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="setting-up-catkin-workspace">
-<h1>Setting Up Catkin Workspace<a class="headerlink" href="#setting-up-catkin-workspace" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Clone this.</p>
+  <div class="section" id="installing-qgroundcontrol">
+<h1>Installing QGroundControl<a class="headerlink" href="#installing-qgroundcontrol" title="Permalink to this headline">¶</a></h1>
+<p>QGroundControl (QCG) is the Ground Control Station we use for deploying HippoCampus.</p>
+<p>QGroundControl has these amazing features/things we need QGroundControl for:</p>
+<ul class="simple">
+<li><p>amazing feature #1</p></li>
+<li><p>nearly as amazing feature #2</p></li>
+<li><p>… whatever</p></li>
+</ul>
+<p>More info about QGC can be found in the <a class="reference external" href="https://docs.qgroundcontrol.com/master/en/">docs</a>.</p>
+<div class="section" id="the-daily-build-appimage">
+<h2>The Daily Build AppImage<a class="headerlink" href="#the-daily-build-appimage" title="Permalink to this headline">¶</a></h2>
+<p>… can be downloaded <a class="reference external" href="https://docs.qgroundcontrol.com/master/en/releases/daily_builds.html">here</a>.</p>
+<p>It is a good idea to keep this up-to-date.
+Alternatively, stable releases can be found <a class="reference external" href="https://docs.qgroundcontrol.com/master/en/getting_started/download_and_install.html">here</a>.</p>
 </div>
-<div class="section" id="step-two">
-<h2>Step Two<a class="headerlink" href="#step-two" title="Permalink to this headline">¶</a></h2>
-<p>Source that.</p>
+<div class="section" id="adding-a-desktop-entry">
+<h2>Adding a desktop entry<a class="headerlink" href="#adding-a-desktop-entry" title="Permalink to this headline">¶</a></h2>
+<p>For convenience, we will add a desktop entry for QGC. This makes it possible to search for the application on your system, and add the application’s icon to your dock.</p>
+<p>For this, move the downloaded AppImage <code class="file docutils literal notranslate"><span class="pre">QGroundControl.AppImage</span></code> to a folder <code class="file docutils literal notranslate"><span class="pre">~/bin</span></code> (you may have to create this directory first).
+Don’t forget to make the AppImage file executable.</p>
+<p>You will also need an app icon, an image with transparent background will look best.
+Let’s name it <code class="file docutils literal notranslate"><span class="pre">qgc_icon.png</span></code>, and put it here: <code class="file docutils literal notranslate"><span class="pre">~/.local/share/icons/qgc_icon.png</span></code>.</p>
+<p>Now, we can create a desktop entry. We will call this file <code class="file docutils literal notranslate"><span class="pre">qgroundcontrol.desktop</span></code>, however, the name doesn’t really matter.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/.local/share/applications <span class="o">&amp;&amp;</span> touch qgroundcontrol.desktop
+</pre></div>
+</div>
+<p>Open this file in your favourite text editor and paste the following lines:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>[Desktop Entry]
+Type=Application
+Name=QGroundControl
+GenericName=Ground Control Station
+Comment=UAS ground control station
+Icon=/home/[YOUR_USERNAME]/.local/share/icons/qgc_icon.png
+Exec=/home/[YOUR_USERNAME]/bin/QGroundControl.AppImage
+Terminal=false
+Categories=Utility;
+</pre></div>
+</div>
+<p>Make sure to adjust the paths to icon and AppImage to the correct ones.</p>
+<p>You can check everything works by typing QGroundControl into the search, the application should come up with the icon you selected.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Every time you download the newest version of QGC, all you have to do is to replace the AppImage file in <code class="file docutils literal notranslate"><span class="pre">~/bin</span></code>.</p>
+</div>
 </div>
 </div>
 
@@ -198,8 +234,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="installing_px4.html" class="btn btn-neutral float-right" title="Installing PX4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="installing_ros.html" class="btn btn-neutral float-left" title="Installing ROS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="starting_gazebo_simulation.html" class="btn btn-neutral float-right" title="Starting Simulation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="installing_px4.html" class="btn btn-neutral float-left" title="Installing PX4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

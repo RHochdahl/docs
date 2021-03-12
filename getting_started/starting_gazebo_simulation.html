@@ -40,7 +40,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Deploying HippoCampus" href="deploying_hippocampus.html" />
-    <link rel="prev" title="Installing PX4" href="installing_px4.html" /> 
+    <link rel="prev" title="Installing QGroundControl" href="installing_qgc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -91,8 +91,13 @@
 <li class="toctree-l2"><a class="reference internal" href="installing_ros.html">Installing ROS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installing_qgc.html">Installing QGroundControl</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Starting Simulation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#step-one">Step One</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#general-launch-setup">General Launch Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spawning-hippocampus">Spawning HippoCampus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#path-following-example">Path Following example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#offboard-mode">Offboard Mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#arming-the-vehicle">Arming the Vehicle</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="deploying_hippocampus.html">Deploying HippoCampus</a></li>
@@ -180,9 +185,39 @@
             
   <div class="section" id="starting-simulation">
 <h1>Starting Simulation<a class="headerlink" href="#starting-simulation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="step-one">
-<h2>Step One<a class="headerlink" href="#step-one" title="Permalink to this headline">¶</a></h2>
-<p>Run this launchfile.</p>
+<div class="section" id="general-launch-setup">
+<h2>General Launch Setup<a class="headerlink" href="#general-launch-setup" title="Permalink to this headline">¶</a></h2>
+<p>Vehicle-specific nodes should be launched in namespace “vehicle_name”, for example <code class="code docutils literal notranslate"><span class="pre">uuv00</span></code> - <code class="code docutils literal notranslate"><span class="pre">uuv99</span></code>.</p>
+<p>Each camera node should be launched in namespace “camera_name”, which can be: <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> for HippoCampus, and <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> and <code class="code docutils literal notranslate"><span class="pre">front_camera</span></code> for the BlueROV’s two cameras.</p>
+</div>
+<div class="section" id="spawning-hippocampus">
+<h2>Spawning HippoCampus<a class="headerlink" href="#spawning-hippocampus" title="Permalink to this headline">¶</a></h2>
+<p>To start Gazebo with one HippoCampus:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roslaunch hippocampus_sim single_vehicle_complete.launch
+</pre></div>
+</div>
+</div>
+<div class="section" id="path-following-example">
+<h2>Path Following example<a class="headerlink" href="#path-following-example" title="Permalink to this headline">¶</a></h2>
+<p>As an example, we will let the HippoCampus follow an Infinity-shaped path in Gazebo.</p>
+<p>Here is the launch file code <code class="file docutils literal notranslate"><span class="pre">path_following_example.launch</span></code> explained:</p>
+<div class="admonition-todo admonition" id="id1">
+<p class="admonition-title">Todo</p>
+<p>…</p>
+</div>
+<p>… Let’s start it!</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roslaunch hippocampus_sim path_following_example.launch
+</pre></div>
+</div>
+</div>
+<div class="section" id="offboard-mode">
+<h2>Offboard Mode<a class="headerlink" href="#offboard-mode" title="Permalink to this headline">¶</a></h2>
+<p>The path follower node publishes attitude setpoints. For the uuv_att_control PX4 module to accept externally provided setpoints, the flight mode <em>Offboard mode</em> has to be selected. This mode can only be engaged if the vehicle is already receiving a stream of target setpoints (&gt;2Hz). The vehicle will exit the mode if target setpoints are not received at a rate of &gt;2Hz.</p>
+<p>The offboard mode can be selected in QGC.</p>
+</div>
+<div class="section" id="arming-the-vehicle">
+<h2>Arming the Vehicle<a class="headerlink" href="#arming-the-vehicle" title="Permalink to this headline">¶</a></h2>
+<p>Arming is also done in QGC.</p>
 </div>
 </div>
 
@@ -193,7 +228,7 @@
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
         <a href="deploying_hippocampus.html" class="btn btn-neutral float-right" title="Deploying HippoCampus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="installing_px4.html" class="btn btn-neutral float-left" title="Installing PX4" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installing_qgc.html" class="btn btn-neutral float-left" title="Installing QGroundControl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
