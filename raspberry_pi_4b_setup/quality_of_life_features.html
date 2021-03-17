@@ -209,6 +209,9 @@ git clone https://github.com/sindresorhus/pure.git <span class="s2">&quot;</span
 
 <span class="c1"># add path to ~/.zshrc, initialize prompt and choose pure (at the top of the file!)</span>
 <span class="nb">echo</span> <span class="s1">&#39;fpath+=$HOME/.zsh/pure \nautoload -U promptinit; promptinit \nprompt pure&#39;</span> <span class="p">|</span> cat - ~/.zshrc &gt; temp <span class="o">&amp;&amp;</span> mv temp ~/.zshrc
+
+<span class="c1"># delete default theme entry</span>
+sed -i <span class="s1">&#39;s/ZSH_THEME=&quot;robbyrussell&quot;/ZSH_THEME=&quot;&quot;/&#39;</span> ~/.zshrc
 </pre></div>
 </div>
 <p>Install <a class="reference external" href="https://github.com/zsh-users/zsh-autosuggestions">zsh-autosuggestions</a>:</p>
@@ -225,11 +228,23 @@ sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&
 </pre></div>
 </div>
 <p>See the Pure <a class="reference external" href="https://github.com/sindresorhus/pure#zstyle-options">Zstyle options</a> and the <a class="reference external" href="https://upload.wikimedia.org/wikipedia/commons/1/15/Xterm_256color_chart.svg">Xterm265 colour chart</a> for other settings and colours.</p>
+<p>To avoid not seeing the nice colors we just selected:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;export TERM=xterm-256color&quot;</span> &gt;&gt; ~/.zshrc
+</pre></div>
+</div>
+<p>To apply changes:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> ~/.zshrc
+</pre></div>
+</div>
 </div>
 <div class="section" id="byobu">
 <h2>Byobu<a class="headerlink" href="#byobu" title="Permalink to this headline">¶</a></h2>
 <p>To install <a class="reference external" href="https://www.byobu.org/">Byobu</a>, a terminal multiplexer:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install byobu
+</pre></div>
+</div>
+<p>Enable Byobu:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>byobu-enable
 </pre></div>
 </div>
 <div class="section" id="useful-shortcuts">
