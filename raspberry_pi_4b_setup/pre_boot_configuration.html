@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -185,7 +188,12 @@
   <div class="section" id="pre-boot-configuration">
 <h1>Pre-Boot Configuration<a class="headerlink" href="#pre-boot-configuration" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic">
-<li><p>Flash an Raspbian Buster image to an SD card with the tool of your choice (for example <a class="reference external" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>).</p></li>
+<li><p>Flash an Raspbian Buster image to an SD card with the tool of your choice (for example <a class="reference external" href="https://www.raspberrypi.org/downloads/">Raspberry Pi Imager</a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Experimental <a class="reference external" href="https://downloads.raspberrypi.org/raspios_arm64/images/">64bit images</a> seem to work with Arducam and have the advantage that ROS can be installed via <code class="code docutils literal notranslate"><span class="pre">apt</span></code>. No need to build ROS from source! Use ROS Noetic in this case.</p>
+</div>
+</li>
 <li><p>Do not eject the SD card yet. Download the <a class="reference download external" download="" href="https://gist.github.com/lennartalff/5cf69169edcca7bc6bfc7909a567f67d"><code class="xref download docutils literal notranslate"><span class="pre">Boot</span> <span class="pre">partition</span> <span class="pre">files</span></code></a> and move them to the <code class="file docutils literal notranslate"><span class="pre">boot</span></code> partition of the SD card.</p>
 <dl class="simple">
 <dt>ssh</dt><dd><p>Empty file that enables the SSH server on the Raspberry Pi.</p>

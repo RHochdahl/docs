@@ -13,6 +13,8 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
 
   
@@ -30,6 +32,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
@@ -98,7 +101,11 @@
 <li class="toctree-l2"><a class="reference internal" href="install_ros_packages.html">Install ROS Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_mavros.html">Install MAVROS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_our_ros_packages.html">Install Our ROS Packages</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Install MIPI Camera Library</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Install MIPI Camera Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#bit-library">32-bit Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">64-bit Library</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="quality_of_life_features.html">Quality-of-Life Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pinout.html">Pinout</a></li>
@@ -185,11 +192,32 @@
   <div class="section" id="install-mipi-camera-library">
 <h1>Install MIPI Camera Library<a class="headerlink" href="#install-mipi-camera-library" title="Permalink to this headline">¶</a></h1>
 <p>If the Raspberry Pi uses an OV9281 camera, you will have to install the MIPI camera library by Arducam.</p>
+<div class="section" id="bit-library">
+<h2>32-bit Library<a class="headerlink" href="#bit-library" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="o">&amp;&amp;</span> git clone https://github.com/ArduCAM/MIPI_Camera.git
 </pre></div>
 </div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/MIPI_Camera/RPI <span class="o">&amp;&amp;</span> make install
 </pre></div>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>64-bit Library<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/raspberrypi/userland
+<span class="nb">cd</span> userland
+git revert f97b1af1b3e653f9da2c1a3643479bfd469e3b74
+git revert e31da99739927e87707b2e1bc978e75653706b9c
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LDFLAGS</span><span class="o">=</span><span class="s2">&quot;-Wl,--no-as-needed&quot;</span>
+./buildme --aarch64
+sudo cp build/lib/*.so /usr/lib/aarch64-linux-gnu/
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="o">&amp;&amp;</span> git clone https://github.com/ArduCAM/MIPI_Camera.git
+sudo cp MIPI_Camera/RPI/lib/aarch64/libarducam_mipicamera.so /usr/lib
+</pre></div>
+</div>
 </div>
 </div>
 
