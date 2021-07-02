@@ -103,12 +103,15 @@
 <li class="toctree-l2"><a class="reference internal" href="install_our_ros_packages.html">Install Our ROS Packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="install_camera_library.html">Install MIPI Camera Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">USB Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">USB Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pixracer">Pixracer</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="quality_of_life_features.html">Quality-of-Life Features</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pinout.html">Pinout</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../esc.html">ESC</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hippocampus_hardware.html">HippoCampus Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gantry.html">Gantry</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
@@ -189,6 +192,8 @@
             
   <div class="section" id="usb-configuration">
 <h1>USB Configuration<a class="headerlink" href="#usb-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="pixracer">
+<h2>Pixracer<a class="headerlink" href="#pixracer" title="Permalink to this headline">¶</a></h2>
 <p>Similar to the UART configuration we can add a UDEV rule to identify the Pixracer if connected via USB and create a symlink with meaningful name.</p>
 <p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-pixracer.rules</span></code> and add the following lines:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyACM[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>FCU_USB<span class="o">}=</span><span class="s2">&quot;fcu_usb&quot;</span>
@@ -209,6 +214,7 @@ ENV<span class="o">{</span>FCU_USB<span class="o">}==</span><span class="s2">&qu
 lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Jun <span class="m">16</span> <span class="m">08</span>:13 /dev/fcu_tele -&gt; ttyAMA2
 <span class="hll">lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Jun <span class="m">16</span> <span class="m">08</span>:13 /dev/fcu_usb -&gt; ttyACM0
 </span></pre></div>
+</div>
 </div>
 </div>
 
