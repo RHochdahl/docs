@@ -193,7 +193,7 @@
 <p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-pixracer.rules</span></code> and add the following lines:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyACM[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>FCU_USB<span class="o">}=</span><span class="s2">&quot;fcu_usb&quot;</span>
 
-ENV<span class="o">{</span>FCU_USB<span class="o">}==</span><span class="s2">&quot;fcu_usb&quot;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, ATTRS<span class="o">{</span>product<span class="o">}==</span><span class="s2">&quot;PX4 FMU v4.x&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_usb&quot;</span>
+ENV<span class="o">{</span>FCU_USB<span class="o">}==</span><span class="s2">&quot;fcu_usb&quot;</span>, <span class="nv">SUBSYSTEM</span><span class="o">==</span><span class="s2">&quot;tty&quot;</span>, ATTRS<span class="o">{</span>idVendor<span class="o">}==</span><span class="s2">&quot;26ac&quot;</span>, ATTRS<span class="o">{</span>idProduct<span class="o">}==</span><span class="s2">&quot;0012&quot;</span>, <span class="nv">SYMLINK</span><span class="o">+=</span><span class="s2">&quot;fcu_usb&quot;</span>
 </pre></div>
 </div>
 <p>Retrigger the rules:</p>
