@@ -42,8 +42,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Pinout" href="pinout.html" />
-    <link rel="prev" title="USB Configuration" href="usb_configuration.html" /> 
+    <link rel="next" title="ROS Installation" href="ros_installation.html" />
+    <link rel="prev" title="Ethernet Configuration" href="ethernet_configuration.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -95,6 +95,16 @@
 <li class="toctree-l2"><a class="reference internal" href="pre_boot_configuration.html">Pre-Boot Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="system_configuration.html">System Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ethernet_configuration.html">Ethernet Configuration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Quality-of-Life Features</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-fast-way">The Fast Way</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-good-way">The Good Way</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#zsh">zsh</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#byobu">Byobu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#vim">VIM</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="ros_installation.html">ROS Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ros_network_setup.html">ROS Network Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update_catkin_ws.html">Update Catkin Workspace</a></li>
@@ -104,15 +114,6 @@
 <li class="toctree-l2"><a class="reference internal" href="install_camera_library.html">Install MIPI Camera Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="uart_configuration.html">UART Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usb_configuration.html">USB Configuration</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Quality-of-Life Features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#zsh">zsh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#byobu">Byobu</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#useful-shortcuts">Useful Shortcuts</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#vim">VIM</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="pinout.html">Pinout</a></li>
 </ul>
 </li>
@@ -197,10 +198,41 @@
             
   <div class="section" id="quality-of-life-features">
 <h1>Quality-of-Life Features<a class="headerlink" href="#quality-of-life-features" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="the-fast-way">
+<h2>The Fast Way<a class="headerlink" href="#the-fast-way" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install -y zsh git curl wget byobu vim<span class="se">\</span>
+<span class="o">&amp;&amp;</span> sh -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>Choose <code class="code docutils literal notranslate"><span class="pre">zsh</span></code> as default by hitting enter.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># clone repo</span>
+mkdir -p <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.zsh&quot;</span>
+git clone https://github.com/sindresorhus/pure.git <span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.zsh/pure&quot;</span>
+
+<span class="c1"># add path to ~/.zshrc, initialize prompt and choose pure (at the top of the file!)</span>
+<span class="nb">echo</span> <span class="s1">&#39;fpath+=$HOME/.zsh/pure \nautoload -U promptinit; promptinit \nprompt pure&#39;</span> <span class="p">|</span> cat - ~/.zshrc &gt; temp <span class="o">&amp;&amp;</span> mv temp ~/.zshrc
+
+<span class="c1"># delete default theme entry</span>
+sed -i <span class="s1">&#39;s/ZSH_THEME=&quot;robbyrussell&quot;/ZSH_THEME=&quot;&quot;/&#39;</span> ~/.zshrc
+<span class="c1"># clone repo</span>
+git clone https://github.com/zsh-users/zsh-autosuggestions <span class="si">${</span><span class="nv">ZSH_CUSTOM</span><span class="k">:-</span><span class="p">~/.oh-my-zsh/custom</span><span class="si">}</span>/plugins/zsh-autosuggestions
+
+<span class="c1"># add plugin to list of plugins</span>
+<span class="c1"># assuming unchanged list containing only git, otherwise do this manually</span>
+sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&#39;</span> ~/.zshrc
+<span class="nb">echo</span> <span class="s2">&quot;zstyle &#39;:prompt:pure:path&#39; color 075\nzstyle &#39;:prompt:pure:prompt:success&#39; color 214\nzstyle &#39;:prompt:pure:user&#39; color 119\nzstyle &#39;:prompt:pure:host&#39; color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=161&#39;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">echo</span> <span class="s2">&quot;zstyle &#39;:prompt:pure:path&#39; color 075\nzstyle &#39;:prompt:pure:prompt:success&#39; color 214\nzstyle &#39;:prompt:pure:user&#39; color 119\nzstyle &#39;:prompt:pure:host&#39; color 119\nZSH_AUTOSUGGEST_HIGHLIGHT_STYLE=&#39;fg=161&#39;&quot;</span> &gt;&gt; ~/.zshrc
+<span class="nb">source</span> ~/.zshrc
+byobu-enable
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-good-way">
+<h2>The Good Way<a class="headerlink" href="#the-good-way" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="zsh">
-<h2>zsh<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h2>
+<h3>zsh<a class="headerlink" href="#zsh" title="Permalink to this headline">¶</a></h3>
 <p>We prefer using the Z shell (zsh). To install:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install zsh
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install -y zsh git curl
 </pre></div>
 </div>
 <p>Install <a class="reference external" href="https://ohmyz.sh/">oh-my-zsh</a>:</p>
@@ -243,7 +275,7 @@ sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&
 </div>
 </div>
 <div class="section" id="byobu">
-<h2>Byobu<a class="headerlink" href="#byobu" title="Permalink to this headline">¶</a></h2>
+<h3>Byobu<a class="headerlink" href="#byobu" title="Permalink to this headline">¶</a></h3>
 <p>To install <a class="reference external" href="https://www.byobu.org/">Byobu</a>, a terminal multiplexer:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install byobu
 </pre></div>
@@ -253,7 +285,7 @@ sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&
 </pre></div>
 </div>
 <div class="section" id="useful-shortcuts">
-<h3>Useful Shortcuts<a class="headerlink" href="#useful-shortcuts" title="Permalink to this headline">¶</a></h3>
+<h4>Useful Shortcuts<a class="headerlink" href="#useful-shortcuts" title="Permalink to this headline">¶</a></h4>
 <table class="colwidths-given docutils align-default">
 <colgroup>
 <col style="width: 25%" />
@@ -292,10 +324,11 @@ sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&
 </div>
 </div>
 <div class="section" id="vim">
-<h2>VIM<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h2>
+<h3>VIM<a class="headerlink" href="#vim" title="Permalink to this headline">¶</a></h3>
 <p>To install vim:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install vim
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -306,8 +339,8 @@ sed -i <span class="s1">&#39;s/plugins=(git)/plugins=(git zsh-autosuggestions)/&
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="pinout.html" class="btn btn-neutral float-right" title="Pinout" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="usb_configuration.html" class="btn btn-neutral float-left" title="USB Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_installation.html" class="btn btn-neutral float-right" title="ROS Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ethernet_configuration.html" class="btn btn-neutral float-left" title="Ethernet Configuration" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
