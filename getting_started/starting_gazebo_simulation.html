@@ -188,6 +188,10 @@
             
   <div class="section" id="starting-simulation">
 <h1>Starting Simulation<a class="headerlink" href="#starting-simulation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If launching gazebo from ROS, ROS is not able to kill the gazebo node without escalating to <strong>SIGTERM</strong>. This happens after a 15s timeout. If you do not have the time to wait for so long, you can modifiy <code class="file docutils literal notranslate"><span class="pre">/opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py</span></code> and change <code class="code docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT_SIGINT</span></code> to some value you are willing to wait.</p>
+</div>
 <div class="section" id="general-launch-setup">
 <h2>General Launch Setup<a class="headerlink" href="#general-launch-setup" title="Permalink to this headline">¶</a></h2>
 <p>Vehicle-specific nodes should be launched in namespace “vehicle_name”, for example <code class="code docutils literal notranslate"><span class="pre">uuv00</span></code> - <code class="code docutils literal notranslate"><span class="pre">uuv99</span></code>.</p>
