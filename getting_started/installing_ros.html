@@ -89,7 +89,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing ROS</a><ul>
@@ -189,7 +189,7 @@
             
   <div class="section" id="installing-ros">
 <h1>Installing ROS<a class="headerlink" href="#installing-ros" title="Permalink to this headline">¶</a></h1>
-<p>The following installations steps work for a Ubuntu 18.04 amd64 version <strong>and</strong> for the Ubuntu 18.04 server image for the Raspberry Pi.</p>
+<p>The following installations steps work for a Ubuntu 20.04 amd64 version <strong>and</strong> for the Ubuntu 20.04 server image for the Raspberry Pi.</p>
 <div class="section" id="preparation">
 <h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
@@ -199,7 +199,8 @@
 </div>
 </li>
 <li><p>Add keys</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver <span class="s1">&#39;hkp://keyserver.ubuntu.com:80&#39;</span> --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install curl <span class="c1"># if you haven&#39;t already installed curl</span>
+curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span class="p">|</span> sudo apt-key add -
 </pre></div>
 </div>
 </li>
@@ -214,26 +215,26 @@
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Choose the installation option depending on your needs. Probably it’s not reasonable to install <code class="code docutils literal notranslate"><span class="pre">ros-melodic-desktop-full</span></code> on an Ubuntu server image for the Raspberry Pi.</p>
+<p>Choose the installation option depending on your needs. Probably it’s not reasonable to install <code class="code docutils literal notranslate"><span class="pre">ros-noetic-desktop-full</span></code> on an Ubuntu server image for the Raspberry Pi.</p>
 </div>
 <ol class="arabic">
 <li><p>Install ROS</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-ZGVza3RvcC1mdWxs" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tab" tabindex="0">desktop-full</button><button aria-controls="panel-0-YmFzZSAobm8gR1VJKQ==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tab" tabindex="-1">base (no GUI)</button></div><div aria-labelledby="tab-0-ZGVza3RvcC1mdWxs" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-desktop-full
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-ZGVza3RvcC1mdWxs" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tab" tabindex="0">desktop-full</button><button aria-controls="panel-0-YmFzZSAobm8gR1VJKQ==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tab" tabindex="-1">base (no GUI)</button></div><div aria-labelledby="tab-0-ZGVza3RvcC1mdWxs" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-ZGVza3RvcC1mdWxs" name="ZGVza3RvcC1mdWxs" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-noetic-desktop-full
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-0-YmFzZSAobm8gR1VJKQ==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-melodic-ros-base
+</div><div aria-labelledby="tab-0-YmFzZSAobm8gR1VJKQ==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-YmFzZSAobm8gR1VJKQ==" name="YmFzZSAobm8gR1VJKQ==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install ros-noetic-ros-base
 </pre></div>
 </div>
 </div></div>
 </li>
 <li><p>Install build dependencies</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-rosdep python-rosinstall python-rosinstall-generator python-wstool build-essential
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 </pre></div>
 </div>
 </li>
 <li><p>Install catkin-tools</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python-catkin-tools
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-catkin-tools python3-osrf-pycommon
 </pre></div>
 </div>
 </li>
@@ -241,6 +242,9 @@
 </div>
 <div class="section" id="rosdep-initialization">
 <h2>rosdep Initialization<a class="headerlink" href="#rosdep-initialization" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-rosdep
+</pre></div>
+</div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo rosdep init <span class="o">&amp;&amp;</span> rosdep update
 </pre></div>
 </div>
@@ -253,10 +257,10 @@
 <h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline">¶</a></h2>
 <p>Depending on the shell you use, choose one of the following two options:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-1-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-1-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.zsh
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-1-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-1-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/noetic/setup.zsh
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-1-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/melodic/setup.bash
+</div><div aria-labelledby="tab-1-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-1-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/noetic/setup.bash
 </pre></div>
 </div>
 </div></div>
@@ -270,11 +274,11 @@
 </div>
 <p>Automatically source your Catkin workspace, choose the option according to your shell:</p>
 <div class="sphinx-tabs docutils container">
-<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-2-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-2-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-2-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-2-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-2-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-2-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/noetic/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 <span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.zsh&quot;</span> &gt;&gt; ~/.zshrc
 </pre></div>
 </div>
-</div><div aria-labelledby="tab-2-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/melodic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
+</div><div aria-labelledby="tab-2-YmFzaA==" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-2-YmFzaA==" name="YmFzaA==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;source /opt/ros/noetic/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 <span class="nb">echo</span> <span class="s2">&quot;source \$HOME/catkin_ws/devel/setup.bash&quot;</span> &gt;&gt; ~/.bashrc
 </pre></div>
 </div>
