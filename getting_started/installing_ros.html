@@ -43,8 +43,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setting Up Catkin Workspace" href="setting_up_catkin_workspace.html" />
-    <link rel="prev" title="Getting Started" href="../getting_started.html" /> 
+    <link rel="next" title="Installing PX4" href="installing_px4.html" />
+    <link rel="prev" title="Quality-of-Life Features" href="quality_of_life_features_2.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -92,15 +92,18 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="quality_of_life_features_2.html">Quality-of-Life Features</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installing ROS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#preparation">Preparation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rosdep-initialization">rosdep Initialization</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#catkin-initialization">Catkin Initialization</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#installation-of-hippocampus-packages">Installation of HippoCampus Packages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-up-catkin-workspace">Setting up Catkin Workspace</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installation-of-hippocampus-packages">Installation of HippoCampus packages</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="setting_up_catkin_workspace.html">Setting Up Catkin Workspace</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="installing_px4.html">Installing PX4</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installing_qgc.html">Installing QGroundControl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="starting_gazebo_simulation.html">Starting Simulation</a></li>
@@ -284,12 +287,14 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span cla
 </div>
 </div></div>
 </div>
-<div class="section" id="installation-of-hippocampus-packages">
-<h2>Installation of HippoCampus Packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-catkin-workspace">
+<h2>Setting up Catkin Workspace<a class="headerlink" href="#setting-up-catkin-workspace" title="Permalink to this headline">¶</a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Make sure you are in your Catkin workspace’s <code class="file docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
 </div>
+<div class="section" id="installation-of-hippocampus-packages">
+<h3>Installation of HippoCampus packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h3>
 <p>This is a collection of usually needed packages on your personal computer. Feel free to skip unwanted packages and visit <a class="reference external" href="https://github.com/hippocampusrobotics">GitHub</a> to see a full list of our packages.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:HippoCampusRobotics/hippocampus_common.git
 git clone git@github.com:HippoCampusRobotics/hippocampus_msgs.git
@@ -304,6 +309,20 @@ git clone git@github.com:HippoCampusRobotics/path_planning.git
 git clone git@github.com:HippoCampusRobotics/gantry_control.git
 </pre></div>
 </div>
+<p>To install dependencies, such as AprilTag and MAVROS:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> rosdep install --from-path src --ignore-src -r -y
+</pre></div>
+</div>
+<p>For MAVROS, you also need to install the <a class="reference external" href="https://geographiclib.sourceforge.io/">GeographicLib</a> datasets:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget https://raw.githubusercontent.com/mavlink/mavros/master/mavros/scripts/install_geographiclib_datasets.sh
+sudo bash ./install_geographiclib_datasets.sh
+</pre></div>
+</div>
+<p>Build your Catkin workspace:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> ~/catkin_ws <span class="o">&amp;&amp;</span> catkin build
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 
@@ -313,8 +332,8 @@ git clone git@github.com:HippoCampusRobotics/gantry_control.git
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="setting_up_catkin_workspace.html" class="btn btn-neutral float-right" title="Setting Up Catkin Workspace" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../getting_started.html" class="btn btn-neutral float-left" title="Getting Started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installing_px4.html" class="btn btn-neutral float-right" title="Installing PX4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="quality_of_life_features_2.html" class="btn btn-neutral float-left" title="Quality-of-Life Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
