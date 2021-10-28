@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Installing ROS &mdash; HippoCampusDocs  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Installing PX4" href="installing_px4.html" />
     <link rel="prev" title="Quality-of-Life Features" href="quality_of_life_features_2.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> HippoCampusDocs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../getting_started.html">Getting Started</a><ul class="current">
@@ -118,83 +67,39 @@
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">HippoCampusDocs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../getting_started.html">Getting Started</a> &raquo;</li>
-        
       <li>Installing ROS</li>
     
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/HippoCampusRobotics/docs/blob/master/getting_started/installing_ros.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
     <li class="wy-breadcrumbs-aside"><a href="https://hippocampusrobotics.github.io/" class="fa fa-github"> Project Page </a></li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="installing-ros">
-<h1>Installing ROS<a class="headerlink" href="#installing-ros" title="Permalink to this headline">¶</a></h1>
+<h1>Installing ROS<a class="headerlink" href="#installing-ros" title="Permalink to this headline"></a></h1>
 <p>The following installations steps work for a Ubuntu 20.04 amd64 version <strong>and</strong> for the Ubuntu 20.04 server image for the Raspberry Pi.</p>
 <div class="section" id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline">¶</a></h2>
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><p>Add sources</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
@@ -215,7 +120,7 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span cla
 </ol>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Choose the installation option depending on your needs. Probably it’s not reasonable to install <code class="code docutils literal notranslate"><span class="pre">ros-noetic-desktop-full</span></code> on an Ubuntu server image for the Raspberry Pi.</p>
@@ -244,7 +149,7 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span cla
 </ol>
 </div>
 <div class="section" id="rosdep-initialization">
-<h2>rosdep Initialization<a class="headerlink" href="#rosdep-initialization" title="Permalink to this headline">¶</a></h2>
+<h2>rosdep Initialization<a class="headerlink" href="#rosdep-initialization" title="Permalink to this headline"></a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt install python3-rosdep
 </pre></div>
 </div>
@@ -257,7 +162,7 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span cla
 </div>
 </div>
 <div class="section" id="catkin-initialization">
-<h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline">¶</a></h2>
+<h2>Catkin Initialization<a class="headerlink" href="#catkin-initialization" title="Permalink to this headline"></a></h2>
 <p>Depending on the shell you use, choose one of the following two options:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-enNo" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-enNo" name="enNo" role="tab" tabindex="0">zsh</button><button aria-controls="panel-1-YmFzaA==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-YmFzaA==" name="YmFzaA==" role="tab" tabindex="-1">bash</button></div><div aria-labelledby="tab-1-enNo" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-enNo" name="enNo" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span> /opt/ros/noetic/setup.zsh
@@ -288,13 +193,13 @@ curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span cla
 </div></div>
 </div>
 <div class="section" id="setting-up-catkin-workspace">
-<h2>Setting up Catkin Workspace<a class="headerlink" href="#setting-up-catkin-workspace" title="Permalink to this headline">¶</a></h2>
+<h2>Setting up Catkin Workspace<a class="headerlink" href="#setting-up-catkin-workspace" title="Permalink to this headline"></a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Make sure you are in your Catkin workspace’s <code class="file docutils literal notranslate"><span class="pre">src</span></code> directory.</p>
 </div>
 <div class="section" id="installation-of-hippocampus-packages">
-<h3>Installation of HippoCampus packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline">¶</a></h3>
+<h3>Installation of HippoCampus packages<a class="headerlink" href="#installation-of-hippocampus-packages" title="Permalink to this headline"></a></h3>
 <p>This is a collection of usually needed packages on your personal computer. Feel free to skip unwanted packages and visit <a class="reference external" href="https://github.com/hippocampusrobotics">GitHub</a> to see a full list of our packages.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone git@github.com:HippoCampusRobotics/hippocampus_common.git
 git clone git@github.com:HippoCampusRobotics/hippocampus_msgs.git
@@ -328,50 +233,33 @@ sudo bash ./install_geographiclib_datasets.sh
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="installing_px4.html" class="btn btn-neutral float-right" title="Installing PX4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="quality_of_life_features_2.html" class="btn btn-neutral float-left" title="Quality-of-Life Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="installing_px4.html" class="btn btn-neutral float-right" title="Installing PX4" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.
-
-    </p>
+    <p>&#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

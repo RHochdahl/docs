@@ -1,75 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>ROS Installation &mdash; HippoCampusDocs  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ROS Network Setup" href="ros_network_setup.html" />
     <link rel="prev" title="Quality-of-Life Features" href="quality_of_life_features.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> HippoCampusDocs
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -77,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../getting_started.html">Getting Started</a></li>
@@ -123,87 +72,43 @@
 <li class="toctree-l1"><a class="reference internal" href="../workflow_and_style_guide.html">Workflow and Style Guide</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">HippoCampusDocs</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-           
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
           <li><a href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a> &raquo;</li>
-        
       <li>ROS Installation</li>
     
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
-            
               <a href="https://github.com/HippoCampusRobotics/docs/blob/master/raspberry_pi_4b_setup/ros_installation.rst" class="fa fa-github"> Edit on GitHub</a>
-            
-          
-        
       </li>
-    
     <li class="wy-breadcrumbs-aside"><a href="https://hippocampusrobotics.github.io/" class="fa fa-github"> Project Page </a></li>
 
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="ros-installation">
-<h1>ROS Installation<a class="headerlink" href="#ros-installation" title="Permalink to this headline">¶</a></h1>
+<h1>ROS Installation<a class="headerlink" href="#ros-installation" title="Permalink to this headline"></a></h1>
 <p>In general you can follow the official instruction in the <a class="reference external" href="http://wiki.ros.org/ROSberryPi/Installing%20ROS%20Melodic%20on%20the%20Raspberry%20Pi">ROS wiki</a> to install ROS under Raspbian Buster on the Raspberry Pi. But the following instructions will use <code class="code docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">tools</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">catkin_make</span></code> or <code class="code docutils literal notranslate"><span class="pre">catkin_make_isolated</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you use the 64bit Raspbian, you can follow the Debian standard <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Debian">installation guide</a> and skip everything regarding <code class="file docutils literal notranslate"><span class="pre">ros_catkin_ws</span></code>.</p>
 </div>
 <div class="section" id="workspace-concept">
-<h2>Workspace Concept<a class="headerlink" href="#workspace-concept" title="Permalink to this headline">¶</a></h2>
+<h2>Workspace Concept<a class="headerlink" href="#workspace-concept" title="Permalink to this headline"></a></h2>
 <p>Since ROS is not availabe as binary packages for Raspbian, all the ROS packages have to be installed from source. To not flood our <cite>normal</cite> Catkin workspace, we create two seperate workspaces.</p>
 <dl class="simple">
 <dt>~/ros_catkin_ws</dt><dd><p>This is the workspace, where the source code of the packages we just want to install lives. We will configure Catkin to install these packages in <code class="file docutils literal notranslate"><span class="pre">/opt/ros/melodic</span></code>. This is the directory, where the installation via prebuilt packages would also create its files. It is not very likely you get in touch with this workspace often after the initial installation.</p>
@@ -213,13 +118,13 @@
 </dl>
 </div>
 <div class="section" id="preparations">
-<h2>Preparations<a class="headerlink" href="#preparations" title="Permalink to this headline">¶</a></h2>
+<h2>Preparations<a class="headerlink" href="#preparations" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><p>Adding keys</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo sh -c <span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc <span class="p">|</span> sudo apt-key add -
 </pre></div>
 </div>
 </li>
@@ -229,7 +134,7 @@
 </div>
 </li>
 <li><p>Install dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y python-rosdep python-rosinstall-generator python-wstool python-rosinstall build-essential cmake python-catkin-tools
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo apt install -y python3-rosdep python3-rosinstall-generator python3-vcstool python3-rosinstall build-essential cmake python3-catkin-tools
 </pre></div>
 </div>
 </li>
@@ -244,10 +149,10 @@
 </ol>
 </div>
 <div class="section" id="setup-workspace">
-<h2>Setup Workspace<a class="headerlink" href="#setup-workspace" title="Permalink to this headline">¶</a></h2>
+<h2>Setup Workspace<a class="headerlink" href="#setup-workspace" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><p>Create workspace</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir ~/ros_catkin_ws <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ros_catkin_ws
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir -p ~/ros_catkin_ws/src <span class="o">&amp;&amp;</span> <span class="nb">cd</span> ~/ros_catkin_ws
 </pre></div>
 </div>
 </li>
@@ -256,25 +161,25 @@
 <p class="admonition-title">Attention</p>
 <p>The following commands will fetch the sources for the <code class="code docutils literal notranslate"><span class="pre">ros_comm</span></code> meta package and the <code class="code docutils literal notranslate"><span class="pre">perception</span></code> meta package. If you do not need all of them or if you need even more packages feel free to modify the following commands accordingly. Building unnecessary packages might be a waste of time.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosinstall_generator ros_comm perception --rosdistro melodic --deps --wet-only --tar &gt; melodic-ros_comm-perception-wet.rosinstall
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosinstall_generator ros_comm perception --rosdistro noetic --deps --wet-only --tar &gt; noetic-ros_comm-perception-wet.rosinstall
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wstool init src melodic-ros_comm-perception-wet.rosinstall
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcs import --input noetic-ros_comm-perception-wet.rosinstall ./src
 </pre></div>
 </div>
 </li>
 <li><p>Resolve dependencies</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosdep install -y --from-paths src --ignore-src --rosdistro melodic -r --os<span class="o">=</span>debian:buster
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosdep install -y --from-paths src --ignore-src --rosdistro noetic -r --os<span class="o">=</span>debian:buster
 </pre></div>
 </div>
 </li>
 </ol>
 </div>
 <div class="section" id="build-the-code">
-<h2>Build the Code<a class="headerlink" href="#build-the-code" title="Permalink to this headline">¶</a></h2>
+<h2>Build the Code<a class="headerlink" href="#build-the-code" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><p>Set the install space</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin config --install-space /opt/ros/melodic
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>catkin config --install-space /opt/ros/noetic
 </pre></div>
 </div>
 </li>
@@ -288,14 +193,14 @@
 <p class="admonition-title">Note</p>
 <p>Depending on your package configuration the next command may take some time, i.e. a few hours if you want to build many packages.</p>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo catkin build --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release -DPYTHON_EXECUTABLE<span class="o">=</span>/usr/bin/python3
 </pre></div>
 </div>
 </li>
 </ol>
 </div>
 <div class="section" id="initialize-user-workspace">
-<h2>Initialize User Workspace<a class="headerlink" href="#initialize-user-workspace" title="Permalink to this headline">¶</a></h2>
+<h2>Initialize User Workspace<a class="headerlink" href="#initialize-user-workspace" title="Permalink to this headline"></a></h2>
 <ol class="arabic">
 <li><p>Source your ROS installation</p>
 <div class="sphinx-tabs docutils container">
@@ -346,50 +251,33 @@
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="ros_network_setup.html" class="btn btn-neutral float-right" title="ROS Network Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="quality_of_life_features.html" class="btn btn-neutral float-left" title="Quality-of-Life Features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ros_network_setup.html" class="btn btn-neutral float-right" title="ROS Network Setup" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.
-
-    </p>
+    <p>&#169; Copyright 2020, Thies Lennart Alff, Nathalie Bauschmann.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
