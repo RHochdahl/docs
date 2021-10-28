@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Servo And Light" href="servo_and_light.html" />
-    <link rel="prev" title="BlueROV" href="../bluerov.html" /> 
+    <link rel="prev" title="Deploy Klopsi" href="deploy.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -43,6 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../raspberry_pi_4b_setup.html">Raspberry Pi 4B Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hippocampus_hardware.html">HippoCampus Hardware</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../bluerov.html">BlueROV</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="deploy.html">Deploy Klopsi</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Build And Flash</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#build-the-firmware">Build The Firmware</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#flash-the-firmware">Flash The Firmware</a></li>
@@ -116,18 +117,6 @@
 <span class="lineno">5 </span><span class="s">EOF</span>
 </pre></div>
 </div>
-<p>For even more convenience, copy your ssh-key to the BlueROV to enable passwordless login and create an entry in your <code class="file docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> for the BlueROV similiar to:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="lineno">1 </span>Host klopsi
-<span class="lineno">2 </span>    User ubuntu
-<span class="lineno">3 </span>    Hostname klopsi.local
-<span class="lineno">4 </span>    IdentitiyFile <span class="s2">&quot;~/.ssh/id_ed25519&quot;</span>
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Replace the path for the identity file with the name of your key.</p>
-</div>
-<p>This entry allows you to use <code class="file docutils literal notranslate"><span class="pre">klopsi</span></code> instead of <code class="file docutils literal notranslate"><span class="pre">ubuntu&#64;klopsi.local</span></code>.</p>
 </div>
 </div>
 
@@ -135,7 +124,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../bluerov.html" class="btn btn-neutral float-left" title="BlueROV" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="deploy.html" class="btn btn-neutral float-left" title="Deploy Klopsi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="servo_and_light.html" class="btn btn-neutral float-right" title="Servo And Light" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
