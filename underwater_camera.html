@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gantry &mdash; HippoCampusDocs  documentation</title>
+  <title>Underwater Camera &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
@@ -15,11 +15,12 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/tabs.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="General Information" href="gantry/general_information.html" />
-    <link rel="prev" title="Servo And Light" href="bluerov/servo_and_light.html" /> 
+    <link rel="next" title="Contributing" href="contributing.html" />
+    <link rel="prev" title="Raspberry Pi Setup" href="gantry/raspi_setup.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -44,12 +45,12 @@
 <li class="toctree-l1"><a class="reference internal" href="raspberry_pi_4b_experimental.html">Raspberry Pi 4B Experimental</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hippocampus_hardware.html">HippoCampus Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bluerov.html">BlueROV</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Gantry</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gantry/general_information.html">General Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gantry/raspi_setup.html">Raspberry Pi Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gantry.html">Gantry</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Underwater Camera</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#streaming">Streaming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-to-file">Save to File</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="underwater_camera.html">Underwater Camera</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="workflow_and_style_guide.html">Workflow and Style Guide</a></li>
 </ul>
@@ -68,10 +69,10 @@
            <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Gantry</li>
+      <li>Underwater Camera</li>
     
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/gantry.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/HippoCampusRobotics/docs/blob/master/underwater_camera.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
     <li class="wy-breadcrumbs-aside"><a href="https://hippocampusrobotics.github.io/" class="fa fa-github"> Project Page </a></li>
 
@@ -81,23 +82,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="gantry">
-<h1>Gantry<a class="headerlink" href="#gantry" title="Permalink to this headline"></a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="gantry/general_information.html">General Information</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gantry/general_information.html#coordinate-system">Coordinate System</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gantry/general_information.html#motors">Motors</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="gantry/raspi_setup.html">Raspberry Pi Setup</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gantry/raspi_setup.html#requirements">Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gantry/raspi_setup.html#enable-uart">Enable UART</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gantry/raspi_setup.html#udev-rules">UDEV Rules</a></li>
-</ul>
-</li>
-</ul>
+  <div class="section" id="underwater-camera">
+<h1>Underwater Camera<a class="headerlink" href="#underwater-camera" title="Permalink to this headline"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At the time of writing the IP addresses of the cameras are <code class="code docutils literal notranslate"><span class="pre">192.168.0.116</span></code> and <code class="code docutils literal notranslate"><span class="pre">192.168.0.148</span></code>. This might change in the future.</p>
+</div>
+<div class="section" id="streaming">
+<h2>Streaming<a class="headerlink" href="#streaming" title="Permalink to this headline"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-Tm8gTGF0ZW5jeQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-Tm8gTGF0ZW5jeQ==" name="Tm8gTGF0ZW5jeQ==" role="tab" tabindex="0">No Latency</button><button aria-controls="panel-0-U3RhYmxl" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-U3RhYmxl" name="U3RhYmxl" role="tab" tabindex="-1">Stable</button></div><div aria-labelledby="tab-0-Tm8gTGF0ZW5jeQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-Tm8gTGF0ZW5jeQ==" name="Tm8gTGF0ZW5jeQ==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://IP_ADDRESS_OF_THE_CAMERA:554/11 <span class="nv">latency</span><span class="o">=</span><span class="m">0</span> buffer-mode<span class="o">=</span>auto ! queue ! rtph265depay ! h265parse ! decodebin ! videoconvert ! autovideosink
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-U3RhYmxl" class="sphinx-tabs-panel code-tab group-tab" hidden="true" id="panel-0-U3RhYmxl" name="U3RhYmxl" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://IP_ADDRESS_OF_THE_CAMERA:554/11 buffer-mode<span class="o">=</span>auto ! queue ! rtph265depay ! h265parse ! decodebin ! videoconvert ! autovideosink
+</pre></div>
+</div>
+</div></div>
+</div>
+<div class="section" id="save-to-file">
+<h2>Save to File<a class="headerlink" href="#save-to-file" title="Permalink to this headline"></a></h2>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>gst-launch-1.0 rtspsrc <span class="nv">location</span><span class="o">=</span>rtsp://IP_ADDRESS_OF_THE_CAMERA:554/11 buffer-mode<span class="o">=</span>auto ! queue ! rtph265depay ! h265parse ! mp4mux ! filesink <span class="nv">location</span><span class="o">=</span>test.mp4 -e
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -105,8 +111,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bluerov/servo_and_light.html" class="btn btn-neutral float-left" title="Servo And Light" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gantry/general_information.html" class="btn btn-neutral float-right" title="General Information" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="gantry/raspi_setup.html" class="btn btn-neutral float-left" title="Raspberry Pi Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
