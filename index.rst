@@ -18,6 +18,7 @@ Welcome to HippoCampusDocs's documentation!
    bluerov
    gantry
    underwater_camera
+   miscellaneous
    contributing
    workflow_and_style_guide
 
