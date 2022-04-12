@@ -109,23 +109,23 @@
 </li>
 <li><p>Update your <code class="file docutils literal notranslate"><span class="pre">.rosinstall</span></code> file</p>
 <ul>
-<li><p>First, move your existing rosinstall file (assuming <code class="code docutils literal notranslate"><span class="pre">melodic-ros_comm-perception-wet.rosinstall</span></code>) so that it doesn’t get overwritten:</p>
+<li><p>First, move your existing rosinstall file (assuming <code class="code docutils literal notranslate"><span class="pre">noetic-ros_comm-perception-wet.rosinstall</span></code>) so that it doesn’t get overwritten:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mv -i melodic-ros_comm-perception-wet.rosinstall melodic-ros_comm-perception-wet.rosinstall.old
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>mv -i noetic-ros_comm-perception-wet.rosinstall noetic-ros_comm-perception-wet.rosinstall.old
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>Generate new rosinstall file with same, but updated packages:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator ros_comm perception --rosdistro melodic --deps --wet-only --tar &gt; melodic-ros_comm-perception-wet.rosinstall
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>rosinstall_generator ros_comm perception --rosdistro noetic --deps --wet-only --tar &gt; noetic-ros_comm-perception-wet.rosinstall
 </pre></div>
 </div>
 </div></blockquote>
 </li>
 <li><p>You can compare the new rosinstall file to the old version to see which packages will be updated:</p>
 <blockquote>
-<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>diff -u melodic-ros_comm-perception-wet.rosinstall melodic-ros_comm-perception-wet.rosinstall.old
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>diff -u noetic-ros_comm-perception-wet.rosinstall noetic-ros_comm-perception-wet.rosinstall.old
 </pre></div>
 </div>
 </div></blockquote>
@@ -133,7 +133,7 @@
 </ul>
 </li>
 <li><p>Merge</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src melodic-ros_comm-perception-wet.rosinstall
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wstool merge -t src noetic-ros_comm-perception-wet.rosinstall
 </pre></div>
 </div>
 </li>
