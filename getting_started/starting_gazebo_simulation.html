@@ -46,6 +46,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installing_qgc.html">Installing QGroundControl</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Starting Simulation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#general-launch-setup">General Launch Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-setup">Parameter Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#spawning-hippocampus">Spawning HippoCampus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#path-following-example">Path Following example</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#offboard-mode">Offboard Mode</a></li>
@@ -104,6 +105,15 @@
 <p>Vehicle-specific nodes should be launched in namespace “vehicle_name”, for example <code class="code docutils literal notranslate"><span class="pre">uuv00</span></code> - <code class="code docutils literal notranslate"><span class="pre">uuv99</span></code>.</p>
 <p>Each camera node should be launched in namespace “camera_name”, which can be: <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> for HippoCampus, and <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> and <code class="code docutils literal notranslate"><span class="pre">front_camera</span></code> for the BlueROV’s two cameras.</p>
 </div>
+<div class="section" id="parameter-setup">
+<h2>Parameter Setup<a class="headerlink" href="#parameter-setup" title="Permalink to this headline"></a></h2>
+<p>Before continuing on the <em>hydrobatic-way-of-live</em>, we need to set some parameters first.</p>
+<p>In QGroundControl:</p>
+<p>We set <em>Offboard</em> as a flight mode in which remote control (RC) loss is ignored. Thus, <em>fail-safe</em> actions are not triggered.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">COM_RCL_EXCEPT</span><span class="o">=</span><span class="m">4</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="spawning-hippocampus">
 <h2>Spawning HippoCampus<a class="headerlink" href="#spawning-hippocampus" title="Permalink to this headline"></a></h2>
 <p>To start Gazebo with one HippoCampus:</p>
@@ -114,13 +124,13 @@
 <div class="section" id="path-following-example">
 <h2>Path Following example<a class="headerlink" href="#path-following-example" title="Permalink to this headline"></a></h2>
 <p>As an example, we will let the HippoCampus follow an Infinity-shaped path in Gazebo.</p>
-<p>Here is the launch file code <code class="file docutils literal notranslate"><span class="pre">path_following_example.launch</span></code> explained:</p>
+<p>Here is the launch file code <code class="file docutils literal notranslate"><span class="pre">top_path_following_example.launch</span></code> explained:</p>
 <div class="admonition-todo admonition" id="id1">
 <p class="admonition-title">Todo</p>
 <p>…</p>
 </div>
 <p>… Let’s start it!</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roslaunch hippocampus_sim path_following_example.launch
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roslaunch hippocampus_sim top_path_following_example.launch
 </pre></div>
 </div>
 </div>
