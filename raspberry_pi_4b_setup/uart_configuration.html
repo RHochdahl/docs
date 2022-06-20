@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>UART Configuration &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -102,14 +104,14 @@
            <div itemprop="articleBody">
              
   <div class="section" id="uart-configuration">
-<h1>UART Configuration<a class="headerlink" href="#uart-configuration" title="Permalink to this headline"></a></h1>
+<h1>UART Configuration<a class="headerlink" href="#uart-configuration" title="Permalink to this heading"></a></h1>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>By default UART0 is used as a login terminal. Do not change this, unless there is a compelling reason to do so.</p>
 </div>
 <p>We have made the decision to use UART5 for the telemetry communication with the FCU. UART4 is connected to the debug port of the FCU.</p>
 <div class="section" id="uart-kernels-pin-mapping">
-<h2>UART-KERNELS-Pin Mapping<a class="headerlink" href="#uart-kernels-pin-mapping" title="Permalink to this headline"></a></h2>
+<h2>UART-KERNELS-Pin Mapping<a class="headerlink" href="#uart-kernels-pin-mapping" title="Permalink to this heading"></a></h2>
 <p>The UART functions in the following table depend on whether Raspberry Pi is used in a UUV or for the gantry controlling computer.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -160,14 +162,14 @@
 </table>
 </div>
 <div class="section" id="pinout">
-<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this headline"></a></h2>
+<h2>Pinout<a class="headerlink" href="#pinout" title="Permalink to this heading"></a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">UUV</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><a class="reference internal image-reference" href="../_images/pi_pinout_uuv.svg"><img alt="../_images/pi_pinout_uuv.svg" class="align-center" src="../_images/pi_pinout_uuv.svg" width="30000" /></a>
 </div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><a class="reference internal image-reference" href="../_images/pi_pinout_gantry.svg"><img alt="../_images/pi_pinout_gantry.svg" class="align-center" src="../_images/pi_pinout_gantry.svg" width="30000" /></a>
 </div></div>
 </div>
 <div class="section" id="uart-rule">
-<h2>UART Rule<a class="headerlink" href="#uart-rule" title="Permalink to this headline"></a></h2>
+<h2>UART Rule<a class="headerlink" href="#uart-rule" title="Permalink to this heading"></a></h2>
 <p>Create the file <code class="file docutils literal notranslate"><span class="pre">/etc/udev/rules.d/50-serial.rules</span></code> with the following content:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-VVVW" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-VVVW" name="VVVW" role="tab" tabindex="0">UUV</button><button aria-controls="panel-1-R2FudHJ5" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-1-R2FudHJ5" name="R2FudHJ5" role="tab" tabindex="-1">Gantry</button></div><div aria-labelledby="tab-1-VVVW" class="sphinx-tabs-panel code-tab group-tab" id="panel-1-VVVW" name="VVVW" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">KERNEL</span><span class="o">==</span><span class="s2">&quot;ttyAMA[0-9]*&quot;</span>, <span class="nv">GROUP</span><span class="o">=</span><span class="s2">&quot;dialout&quot;</span>, ENV<span class="o">{</span>SERIAL_MARKER<span class="o">}=</span><span class="s2">&quot;fcu_serial&quot;</span>
@@ -215,7 +217,7 @@ lrwxrwxrwx <span class="m">1</span> root root <span class="m">7</span> Aug  <spa
 </div>
 </div>
 <div class="section" id="identify-kernels">
-<h2>Identify KERNELS<a class="headerlink" href="#identify-kernels" title="Permalink to this headline"></a></h2>
+<h2>Identify KERNELS<a class="headerlink" href="#identify-kernels" title="Permalink to this heading"></a></h2>
 <p>To identify the KERNELS paramter of a certain <code class="file docutils literal notranslate"><span class="pre">ttyAMA</span></code> device, execute the following command.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>udevadm info --name<span class="o">=</span>/dev/ttyAMA1 --attribute-walk
 </pre></div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Servo And Light &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -96,19 +98,19 @@
            <div itemprop="articleBody">
              
   <div class="section" id="servo-and-light">
-<h1>Servo And Light<a class="headerlink" href="#servo-and-light" title="Permalink to this headline"></a></h1>
+<h1>Servo And Light<a class="headerlink" href="#servo-and-light" title="Permalink to this heading"></a></h1>
 <p>The LED headlights and the camera servo are controlled via PWM signals. To get a jitter-free PWM signal, a library, supporting hardware PWM, is required. For example <code class="code docutils literal notranslate"><span class="pre">pigpio</span></code>.</p>
 <div class="section" id="install-pigpio">
-<h2>Install PIGPIO<a class="headerlink" href="#install-pigpio" title="Permalink to this headline"></a></h2>
+<h2>Install PIGPIO<a class="headerlink" href="#install-pigpio" title="Permalink to this heading"></a></h2>
 <div class="section" id="raspbian">
-<h3>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this headline"></a></h3>
+<h3>Raspbian<a class="headerlink" href="#raspbian" title="Permalink to this heading"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo apt-get update
 sudo apt-get install pigpio python-pigpio python3-pigpio
 </pre></div>
 </div>
 </div>
 <div class="section" id="ubuntu">
-<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline"></a></h3>
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this heading"></a></h3>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget https://github.com/joan2937/pigpio/archive/master.zip
 unzip master.zip
 <span class="nb">cd</span> pigpio-master
@@ -119,9 +121,9 @@ sudo make install
 </div>
 </div>
 <div class="section" id="enable-the-daemon">
-<h2>Enable The Daemon<a class="headerlink" href="#enable-the-daemon" title="Permalink to this headline"></a></h2>
+<h2>Enable The Daemon<a class="headerlink" href="#enable-the-daemon" title="Permalink to this heading"></a></h2>
 <div class="section" id="ubuntu-only">
-<h3>Ubuntu only<a class="headerlink" href="#ubuntu-only" title="Permalink to this headline"></a></h3>
+<h3>Ubuntu only<a class="headerlink" href="#ubuntu-only" title="Permalink to this heading"></a></h3>
 <p>You need to create the <code class="file docutils literal notranslate"><span class="pre">pigpiod.service</span></code> file at <code class="file docutils literal notranslate"><span class="pre">/etc/systemd/system</span></code>.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>Unit<span class="o">]</span>
 <span class="nv">Description</span><span class="o">=</span>Pigpio daemon
@@ -137,7 +139,7 @@ sudo make install
 </div>
 </div>
 <div class="section" id="raspbian-and-ubuntu">
-<h3>Raspbian and Ubuntu<a class="headerlink" href="#raspbian-and-ubuntu" title="Permalink to this headline"></a></h3>
+<h3>Raspbian and Ubuntu<a class="headerlink" href="#raspbian-and-ubuntu" title="Permalink to this heading"></a></h3>
 <p>Enable the service</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo systemctl <span class="nb">enable</span> pigpiod.service
 </pre></div>

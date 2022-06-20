@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ethernet Configuration &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -96,7 +98,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="ethernet-configuration">
-<h1>Ethernet Configuration<a class="headerlink" href="#ethernet-configuration" title="Permalink to this headline"></a></h1>
+<h1>Ethernet Configuration<a class="headerlink" href="#ethernet-configuration" title="Permalink to this heading"></a></h1>
 <p>The Raspberry Pis are connected with each other via Ethernet. To have a flexible solution, we define a fallback profile in <code class="file docutils literal notranslate"><span class="pre">/etc/dhcpcd.conf</span></code>. So in case you connect the Raspberry Pi directly to the Router, it uses DHCP. If no DHCP server is available, the Raspberry Pis use the static IP address defined in the fallback profile.</p>
 <p>Either uncomment the existing lines or add them, so <code class="file docutils literal notranslate"><span class="pre">dhcpcd.conf</span></code> contains the following:</p>
 <div class="sphinx-tabs docutils container">

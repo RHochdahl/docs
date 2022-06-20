@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Starting Simulation &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -95,18 +97,18 @@
            <div itemprop="articleBody">
              
   <div class="section" id="starting-simulation">
-<h1>Starting Simulation<a class="headerlink" href="#starting-simulation" title="Permalink to this headline"></a></h1>
+<h1>Starting Simulation<a class="headerlink" href="#starting-simulation" title="Permalink to this heading"></a></h1>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>If launching gazebo from ROS, ROS is not able to kill the gazebo node without escalating to <strong>SIGTERM</strong>. This happens after a 15s timeout. If you do not have the time to wait for so long, you can modifiy <code class="file docutils literal notranslate"><span class="pre">/opt/ros/noetic/lib/python3/dist-packages/roslaunch/nodeprocess.py</span></code> and change <code class="code docutils literal notranslate"><span class="pre">DEFAULT_TIMEOUT_SIGINT</span></code> to some value you are willing to wait.</p>
 </div>
 <div class="section" id="general-launch-setup">
-<h2>General Launch Setup<a class="headerlink" href="#general-launch-setup" title="Permalink to this headline"></a></h2>
+<h2>General Launch Setup<a class="headerlink" href="#general-launch-setup" title="Permalink to this heading"></a></h2>
 <p>Vehicle-specific nodes should be launched in namespace “vehicle_name”, for example <code class="code docutils literal notranslate"><span class="pre">uuv00</span></code> - <code class="code docutils literal notranslate"><span class="pre">uuv99</span></code>.</p>
 <p>Each camera node should be launched in namespace “camera_name”, which can be: <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> for HippoCampus, and <code class="code docutils literal notranslate"><span class="pre">vertical_camera</span></code> and <code class="code docutils literal notranslate"><span class="pre">front_camera</span></code> for the BlueROV’s two cameras.</p>
 </div>
 <div class="section" id="parameter-setup">
-<h2>Parameter Setup<a class="headerlink" href="#parameter-setup" title="Permalink to this headline"></a></h2>
+<h2>Parameter Setup<a class="headerlink" href="#parameter-setup" title="Permalink to this heading"></a></h2>
 <p>Before continuing on the <em>hydrobatic-way-of-live</em>, we need to set some parameters first.</p>
 <p>In QGroundControl:</p>
 <p>We set <em>Offboard</em> as a flight mode in which remote control (RC) loss is ignored. Thus, <em>fail-safe</em> actions are not triggered.</p>
@@ -115,14 +117,14 @@
 </div>
 </div>
 <div class="section" id="spawning-hippocampus">
-<h2>Spawning HippoCampus<a class="headerlink" href="#spawning-hippocampus" title="Permalink to this headline"></a></h2>
+<h2>Spawning HippoCampus<a class="headerlink" href="#spawning-hippocampus" title="Permalink to this heading"></a></h2>
 <p>To start Gazebo with one HippoCampus:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>roslaunch hippocampus_sim top_single_vehicle_complete.launch
 </pre></div>
 </div>
 </div>
 <div class="section" id="path-following-example">
-<h2>Path Following example<a class="headerlink" href="#path-following-example" title="Permalink to this headline"></a></h2>
+<h2>Path Following example<a class="headerlink" href="#path-following-example" title="Permalink to this heading"></a></h2>
 <p>As an example, we will let the HippoCampus follow an Infinity-shaped path in Gazebo.</p>
 <p>Here is the launch file code <code class="file docutils literal notranslate"><span class="pre">top_path_following_example.launch</span></code> explained:</p>
 <div class="admonition-todo admonition" id="id1">
@@ -135,12 +137,12 @@
 </div>
 </div>
 <div class="section" id="offboard-mode">
-<h2>Offboard Mode<a class="headerlink" href="#offboard-mode" title="Permalink to this headline"></a></h2>
+<h2>Offboard Mode<a class="headerlink" href="#offboard-mode" title="Permalink to this heading"></a></h2>
 <p>The path follower node publishes attitude setpoints. For the uuv_att_control PX4 module to accept externally provided setpoints, the flight mode <em>Offboard mode</em> has to be selected. This mode can only be engaged if the vehicle is already receiving a stream of target setpoints (&gt;2Hz). The vehicle will exit the mode if target setpoints are not received at a rate of &gt;2Hz.</p>
 <p>The offboard mode can be selected in QGC.</p>
 </div>
 <div class="section" id="arming-the-vehicle">
-<h2>Arming the Vehicle<a class="headerlink" href="#arming-the-vehicle" title="Permalink to this headline"></a></h2>
+<h2>Arming the Vehicle<a class="headerlink" href="#arming-the-vehicle" title="Permalink to this heading"></a></h2>
 <p>Arming is also done in QGC.</p>
 </div>
 </div>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deploy Klopsi &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -90,9 +92,9 @@
            <div itemprop="articleBody">
              
   <div class="section" id="deploy-klopsi">
-<h1>Deploy Klopsi<a class="headerlink" href="#deploy-klopsi" title="Permalink to this headline"></a></h1>
+<h1>Deploy Klopsi<a class="headerlink" href="#deploy-klopsi" title="Permalink to this heading"></a></h1>
 <div class="section" id="ssh-access">
-<h2>SSH Access<a class="headerlink" href="#ssh-access" title="Permalink to this headline"></a></h2>
+<h2>SSH Access<a class="headerlink" href="#ssh-access" title="Permalink to this heading"></a></h2>
 <p>For convenience, copy your ssh-key to the BlueROV to enable passwordless login and create an entry in your <code class="file docutils literal notranslate"><span class="pre">~/.ssh/config</span></code> for the BlueROV similiar to:</p>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-UGkgaW4gdXBwZXIgdHViZQ==" aria-selected="true" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-UGkgaW4gdXBwZXIgdHViZQ==" name="UGkgaW4gdXBwZXIgdHViZQ==" role="tab" tabindex="0">Pi in upper tube</button><button aria-controls="panel-0-UGkgaW4gbG93ZXIgdHViZQ==" aria-selected="false" class="sphinx-tabs-tab code-tab group-tab" id="tab-0-UGkgaW4gbG93ZXIgdHViZQ==" name="UGkgaW4gbG93ZXIgdHViZQ==" role="tab" tabindex="-1">Pi in lower tube</button></div><div aria-labelledby="tab-0-UGkgaW4gdXBwZXIgdHViZQ==" class="sphinx-tabs-panel code-tab group-tab" id="panel-0-UGkgaW4gdXBwZXIgdHViZQ==" name="UGkgaW4gdXBwZXIgdHViZQ==" role="tabpanel" tabindex="0"><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>Host klopsi-main
@@ -115,7 +117,7 @@
 <p>This entry allows you to use <code class="code docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">klopsi-main</span></code> instead of <code class="code docutils literal notranslate"><span class="pre">ssh</span> <span class="pre">pi&#64;klopsi-main.local</span></code>.</p>
 </div>
 <div class="section" id="environment-variables-checklist">
-<h2>Environment Variables Checklist<a class="headerlink" href="#environment-variables-checklist" title="Permalink to this headline"></a></h2>
+<h2>Environment Variables Checklist<a class="headerlink" href="#environment-variables-checklist" title="Permalink to this heading"></a></h2>
 <ol class="arabic">
 <li><p>Change <code class="code docutils literal notranslate"><span class="pre">ROS_MASTER_URI</span></code> in <code class="file docutils literal notranslate"><span class="pre">~/.zshrc</span></code> to your desired value for both Raspberry Pis. For example
 .. code-block:</p>
@@ -135,7 +137,7 @@
 </ol>
 </div>
 <div class="section" id="start-the-usual-setup">
-<h2>Start the usual Setup<a class="headerlink" href="#start-the-usual-setup" title="Permalink to this headline"></a></h2>
+<h2>Start the usual Setup<a class="headerlink" href="#start-the-usual-setup" title="Permalink to this heading"></a></h2>
 <div class="sphinx-tabs docutils container">
 <div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">klopsi-main</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">klopsi-buddy</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ol class="arabic">
 <li><p>Start MAVROS

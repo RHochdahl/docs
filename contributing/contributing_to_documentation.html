@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contributing to Documentation &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -90,19 +92,19 @@
            <div itemprop="articleBody">
              
   <div class="section" id="contributing-to-documentation">
-<h1>Contributing to Documentation<a class="headerlink" href="#contributing-to-documentation" title="Permalink to this headline"></a></h1>
+<h1>Contributing to Documentation<a class="headerlink" href="#contributing-to-documentation" title="Permalink to this heading"></a></h1>
 <div class="section" id="forking-the-repository">
-<h2>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this headline"></a></h2>
+<h2>Forking the Repository<a class="headerlink" href="#forking-the-repository" title="Permalink to this heading"></a></h2>
 <p>Go to this documentation’s <a class="reference external" href="https://github.com/HippoCampusRobotics/docs">GitHub repository</a> and fork it (see <a class="reference external" href="https://help.github.com/en/github/getting-started-with-github/fork-a-repo">GitHub’s documentation</a> for details on forking if you do not know how to fork a repository).</p>
 <p>Then clone your fork with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> so you can work with the repository locally.</p>
 </div>
 <div class="section" id="make-your-changes">
-<h2>Make your Changes<a class="headerlink" href="#make-your-changes" title="Permalink to this headline"></a></h2>
+<h2>Make your Changes<a class="headerlink" href="#make-your-changes" title="Permalink to this heading"></a></h2>
 <p>Modify or complement the existing .rst-files to your liking.</p>
 <p>Help with the most common ReStructuredText/Sphinx directives can be found <a class="reference external" href="https://documentation-style-guide-sphinx.readthedocs.io/en/latest/style-guide.html">here</a>. For a more extensive documentation of the capabilities of Sphinx visit the official <a class="reference external" href="https://www.sphinx-doc.org/en/master/contents.html">website</a>.</p>
 </div>
 <div class="section" id="build-the-docs-locally">
-<h2>Build the Docs locally<a class="headerlink" href="#build-the-docs-locally" title="Permalink to this headline"></a></h2>
+<h2>Build the Docs locally<a class="headerlink" href="#build-the-docs-locally" title="Permalink to this heading"></a></h2>
 <p>Since Sphinx follws the <a class="reference external" href="https://en.wikipedia.org/wiki/WYSIWYM">WYSIWYM paradigm</a>, it is a good idea to build the <code class="docutils literal notranslate"><span class="pre">html</span></code> output, to check if your changes work out as expected.</p>
 <p>Probably easiest way to do so is to setup a virtual environment for python by executing the following commmand inside your cloned fork of the documentation repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m venv venv
@@ -126,11 +128,11 @@
 </div>
 </div>
 <div class="section" id="view-the-html-output">
-<h2>View the HTML output<a class="headerlink" href="#view-the-html-output" title="Permalink to this headline"></a></h2>
+<h2>View the HTML output<a class="headerlink" href="#view-the-html-output" title="Permalink to this heading"></a></h2>
 <p>You can view the HTML output by opening <code class="file docutils literal notranslate"><span class="pre">_build/html/index.html</span></code> with a webbrowser.</p>
 </div>
 <div class="section" id="autogenerate-documentation">
-<h2>Autogenerate Documentation<a class="headerlink" href="#autogenerate-documentation" title="Permalink to this headline"></a></h2>
+<h2>Autogenerate Documentation<a class="headerlink" href="#autogenerate-documentation" title="Permalink to this heading"></a></h2>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>Autodoc is disabled for now. Either implement a docker workflow to build the docs where all runtime dependencies of the documented source code are met or just don’t use autodoc. We stick with the latter one for now.</p>

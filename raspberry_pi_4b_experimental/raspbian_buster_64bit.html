@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" />    <link rel="icon" href="../_static/hippo.svg" type="image/svg+xml">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Raspbian Buster 64bit &mdash; HippoCampusDocs  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,6 +15,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -90,10 +92,10 @@
            <div itemprop="articleBody">
              
   <div class="section" id="raspbian-buster-64bit">
-<h1>Raspbian Buster 64bit<a class="headerlink" href="#raspbian-buster-64bit" title="Permalink to this headline"></a></h1>
+<h1>Raspbian Buster 64bit<a class="headerlink" href="#raspbian-buster-64bit" title="Permalink to this heading"></a></h1>
 <p>An experimental 64bit image of Raspbian can be downloaded from <a class="reference external" href="https://downloads.raspberrypi.org/raspios_arm64/images/">here</a>. The advantage of the 64bit version are the prebuilt packages for ROS. But at the same time problems regarding the camera can occure. The Arducam library depends on MMAL. This is not prebuilt for 64bit systems. It would be rather nice to not rely on Arducam’s OV9281 camera board but to use an USB camera. But for now this is how it is.</p>
 <div class="section" id="preparation">
-<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this headline"></a></h2>
+<h2>Preparation<a class="headerlink" href="#preparation" title="Permalink to this heading"></a></h2>
 <p>Append the following to <code class="file docutils literal notranslate"><span class="pre">/boot/config.txt</span></code>:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># enable additional uarts if you need them</span>
 <span class="nv">dtoverlay</span><span class="o">=</span>uart4
@@ -111,11 +113,11 @@
 <p>Also create an empty <code class="file docutils literal notranslate"><span class="pre">ssh</span></code> file on <code class="file docutils literal notranslate"><span class="pre">/boot</span></code> and change the hostname according to our general naming convention in <a class="reference internal" href="../raspberry_pi_4b_setup/pre_boot_configuration.html#pre-boot-configuration"><span class="std std-ref">Pre-Boot Configuration</span></a>.</p>
 </div>
 <div class="section" id="install-ros">
-<h2>Install ROS<a class="headerlink" href="#install-ros" title="Permalink to this headline"></a></h2>
+<h2>Install ROS<a class="headerlink" href="#install-ros" title="Permalink to this heading"></a></h2>
 <p>You can in general follow the official installation guidelines at the <a class="reference external" href="http://wiki.ros.org/noetic/Installation/Ubuntu">ROS wiki</a> (even if it is the Ubuntu guide).</p>
 </div>
 <div class="section" id="compile-userland-libraries">
-<h2>Compile Userland Libraries<a class="headerlink" href="#compile-userland-libraries" title="Permalink to this headline"></a></h2>
+<h2>Compile Userland Libraries<a class="headerlink" href="#compile-userland-libraries" title="Permalink to this heading"></a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/raspberrypi/userland <span class="o">&amp;&amp;</span> <span class="nb">cd</span> userland
 </pre></div>
 </div>
@@ -134,7 +136,7 @@
 </div>
 </div>
 <div class="section" id="install-arducam-library">
-<h2>Install Arducam Library<a class="headerlink" href="#install-arducam-library" title="Permalink to this headline"></a></h2>
+<h2>Install Arducam Library<a class="headerlink" href="#install-arducam-library" title="Permalink to this heading"></a></h2>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> <span class="o">&amp;&amp;</span> git clone https://github.com/ArduCAM/MIPI_Camera.git
 </pre></div>
 </div>
@@ -143,7 +145,7 @@
 </div>
 </div>
 <div class="section" id="create-symbolic-links">
-<h2>Create Symbolic Links<a class="headerlink" href="#create-symbolic-links" title="Permalink to this headline"></a></h2>
+<h2>Create Symbolic Links<a class="headerlink" href="#create-symbolic-links" title="Permalink to this heading"></a></h2>
 <p>In our <a class="reference external" href="https://github.com/hippoCampusRobotics/camera">camera package</a> is a script to create necessary symlinks for the libraries. Otherwise the linker will complain because of undefined references when executing <code class="code docutils literal notranslate"><span class="pre">catkin</span> <span class="pre">build</span></code>.</p>
 </div>
 </div>
