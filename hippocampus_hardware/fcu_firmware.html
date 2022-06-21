@@ -48,6 +48,7 @@
 <li class="toctree-l2"><a class="reference internal" href="afro_esc.html">Afro ESC</a></li>
 <li class="toctree-l2"><a class="reference internal" href="motor_configuration.html">Motor Configuration</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">FCU Firmware</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exiting-bootloader">Exiting Bootloader</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../bluerov.html">BlueROV</a></li>
@@ -94,8 +95,11 @@
 <p>It is quite handy to have this script in <code class="file docutils literal notranslate"><span class="pre">~/bin</span></code> on the Pi. Make sure that this directory is in <code class="code docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
 </div>
 <ol class="arabic">
-<li><p>Copy the firmware you want to flash to the Raspberry Pi (for example with <code class="code docutils literal notranslate"><span class="pre">scp</span></code>.</p></li>
+<li><p>Copy the firmware you want to flash to the Raspberry Pi (for example with <code class="code docutils literal notranslate"><span class="pre">scp</span></code>).</p></li>
 <li><p>Reboot the FCU into bootloader mode via its shell (QGroundControl or debug port)</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>screen /dev/fcu_debug <span class="m">57600</span>
+</pre></div>
+</div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>reboot -b
 </pre></div>
 </div>
@@ -107,10 +111,25 @@
 </div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
-<p>Make sure you have single quotes around the port name. Otherwise the shell resolves the wildcard before the python script is executed.</p>
+<p>Make sure you have single quotes around the port name. Otherwise the shell resolves the wildcard before the python script is executed. Alternatively choose the port directly, probably <code class="code docutils literal notranslate"><span class="pre">/dev/fcu_usb</span></code>.</p>
 </div>
 </li>
 </ol>
+</div>
+<div class="section" id="exiting-bootloader">
+<h1>Exiting Bootloader<a class="headerlink" href="#exiting-bootloader" title="Permalink to this heading"></a></h1>
+<p>In some cases the FCU might get stuck in bootloader mode. In this case send the reboot sequence to the bootloader.</p>
+<p>Run</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python3
+</pre></div>
+</div>
+<p>and execute the following lines:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">serial</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">serial</span><span class="o">.</span><span class="n">Serial</span><span class="p">(</span><span class="s1">&#39;/dev/fcu_usb&#39;</span><span class="p">,</span> <span class="mi">115200</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x30</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\x20</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 
 
