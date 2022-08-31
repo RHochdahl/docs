@@ -49,6 +49,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../gantry.html">Gantry</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">General Information</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#coordinate-system">Coordinate System</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#motion-controllers">Motion Controllers</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#motors">Motors</a></li>
 </ul>
 </li>
@@ -96,6 +97,14 @@
 <img alt="../_images/gantry_reference_frame_annotation.jpg" src="../_images/gantry_reference_frame_annotation.jpg" />
 <p>The offset to the tank’s coordinate system is measured relative to the tank’s walls (<strong>not</strong> the steel frame).</p>
 <p>According to the <a class="reference external" href="https://github.com/HippoCampusRobotics/mu_auv_localization/blob/main/scripts/generate_tag_poses_yaml">localization package</a> the offset in x-direction is 0.144m and 0.342m in y-direction.</p>
+</div>
+<div class="section" id="motion-controllers">
+<h2>Motion Controllers<a class="headerlink" href="#motion-controllers" title="Permalink to this heading"></a></h2>
+<p>The x- and z-axis are driven by Motion Controllers V1.0. The manual of these controllers is hard to come by these days. So <a class="reference download internal" download="" href="../_downloads/400f11af989f3b9e4edef27159566ad6/mcdc2805.pdf"><code class="xref download docutils literal notranslate"><span class="pre">here</span></code></a> is the PDF. The y-axis has a newer conroller. Probably V2.5. Faulhaber has an Application Note <a class="reference external" href="https://www.faulhaber.com/fileadmin/Import/Media/AN103_EN.pdf">AN103</a> describing the differences between the older and the newer controller types. Can’t say it is of much use (Lennart)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use the Motion Manager, keep in mind that you need Motion Manager 5 for the older MCs instead of version 6.</p>
+</div>
 </div>
 <div class="section" id="motors">
 <h2>Motors<a class="headerlink" href="#motors" title="Permalink to this heading"></a></h2>
