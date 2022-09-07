@@ -17,6 +17,7 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/tabs.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -100,31 +101,46 @@
 </div>
 </li>
 <li><p>Download the firmware</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/sim-/tgy.git
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/hippocampusrobotics/tgy.git
 </pre></div>
 </div>
 </li>
-<li><p>Modify at least the following lines in <code class="file docutils literal notranslate"><span class="pre">tgy.asm</span></code></p>
+<li><p>Build the firmware. This depends on the interface used. The classic way to go is PWM. But if you want to control the ESCs directly from the Raspberry Pi, you might want to use I2C.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">PWM</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">I2C</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Modify at least the following lines in <code class="file docutils literal notranslate"><span class="pre">tgy.asm</span></code></p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">RC_PULS_REVERSE</span> <span class="o">=</span> <span class="m">1</span> <span class="p">;</span> This enables forward/reverse throttle
 <span class="nv">RC_CALIBRATION</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span>
 <span class="nv">STOP_RC_PULS</span> <span class="o">=</span> <span class="m">1000</span> <span class="p">;</span> minimum pwm value
 <span class="nv">FULL_RC_PULS</span> <span class="o">=</span> <span class="m">2000</span> <span class="p">;</span> maximum pwm value
 </pre></div>
 </div>
-</li>
-<li><p><strong>Optionally</strong> fiddle with the deadband</p>
+<p><strong>Optionally</strong> fiddle with the deadband</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nv">RCP_DEADBAND</span> <span class="o">=</span> <span class="m">50</span> <span class="p">;</span> default value
 </pre></div>
 </div>
-</li>
-<li><p>Build the firmware</p>
+<p>Build the firmware</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make all
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Build the firmware in 8 different versions with different <code class="code docutils literal notranslate"><span class="pre">MOTOR_ID</span></code> values starting from <code class="code docutils literal notranslate"><span class="pre">0x29</span></code> and increasing by 1 per step.</p>
+<blockquote>
+<div><div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>make build_8
+</pre></div>
+</div>
+</div></blockquote>
+</div></div>
 </li>
 <li><p>Connect the Afro Programmer with your computer and connect the data wires with the ESC. Supply the ESC with an appropriate voltage (probably ~10-12V).</p></li>
-<li><p>Download <a class="reference download external" download="" href="https://lazyzero.de/_media/modellbau/kkmulticopterflashtool/kkmulticopterflashtool_0.90beta1.zip"><code class="xref download docutils literal notranslate"><span class="pre">KKmulticopter</span> <span class="pre">Flash</span> <span class="pre">Tool</span></code></a>.</p></li>
-<li><p>Flash the <code class="file docutils literal notranslate"><span class="pre">afro_nfet.hex</span></code> firmware you have built before. Select <code class="code docutils literal notranslate"><span class="pre">afrousb</span></code> as programmer and leave the checkbox for default settings selected.</p>
+<li><p>Install or <a class="reference download internal" download="" href="../_downloads/c27ff1131691167c0ccf77d5a2b8872e/avrdude"><code class="xref download docutils literal notranslate"><span class="pre">download</span></code></a> <code class="code docutils literal notranslate"><span class="pre">avrdude</span></code>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>Newer versions of <code class="code docutils literal notranslate"><span class="pre">avrdude</span></code> do not seem to work with the AFRO programmer. So you may want to stick with the older version in the download.</p>
+</div>
+</li>
+<li><p>Flash the <code class="file docutils literal notranslate"><span class="pre">afro_nfet.hex</span></code> firmware you have built before.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>avrdude -b <span class="m">9600</span> -p m8 -P /dev/ttyUSB0 -c stk500v2 -e -U flash:w:afro_nfet.hex.0:i
+</pre></div>
+</div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>Make sure <code class="code docutils literal notranslate"><span class="pre">avrdude</span></code> verifies the flashed data successfully. Otherwise rebuilt the firmware with <code class="code docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span> <span class="pre">&amp;&amp;</span> <span class="pre">make</span> <span class="pre">all</span></code> and try again.</p>
